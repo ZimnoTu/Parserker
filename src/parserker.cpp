@@ -33,3 +33,11 @@ unsigned int Parserker::getCharisma() const {
 void Parserker::setCharisma(unsigned int charisma) {
     Parserker::charisma = charisma;
 }
+unsigned int Parserker::getWillpower() const
+{
+    return willpower;
+}
+void Parserker::setWillpower(unsigned int willpower)
+{
+    Parserker::willpower = willpower;
+}

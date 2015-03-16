@@ -31,3 +31,9 @@ TEST_F (ParserkerTest, ParserkerCharisma)
     parserker.setCharisma(2);
     EXPECT_EQ (2, parserker.getCharisma());
 }
+TEST_F (ParserkerTest, ParserkerWillpower)
+{
+    Parserker parserker;
+    parserker.setWillpower(2);
+    EXPECT_EQ (2, parserker.getWillpower());
+}
