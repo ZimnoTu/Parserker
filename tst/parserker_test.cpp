@@ -37,3 +37,9 @@ TEST_F (ParserkerTest, ParserkerWillpower)
     parserker.setWillpower(2);
     EXPECT_EQ (2, parserker.getWillpower());
 }
+TEST_F (ParserkerTest, ParserkerHP)
+{
+    Parserker parserker;
+    parserker.setHP(2);
+    EXPECT_EQ (2, parserker.getHP());
+}

@@ -41,3 +41,11 @@ void Parserker::setWillpower(unsigned int willpower)
 {
     Parserker::willpower = willpower;
 }
+unsigned int Parserker::getHP() const
+{
+    return hp;
+}
+void Parserker::setHP(unsigned int hp)
+{
+    Parserker::hp = hp;
+}

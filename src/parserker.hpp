@@ -18,6 +18,8 @@ public:
     void setCharisma(unsigned int charisma);
     unsigned int getWillpower() const;
     void setWillpower(unsigned int charisma);
+    unsigned int getHP() const;
+    void setHP(unsigned int hp);
 
 private:
     unsigned int armor;
@@ -25,6 +27,7 @@ private:
     unsigned int intelligence;
     unsigned int charisma;
     unsigned int willpower;
+    unsigned int hp;
 
 };
 
