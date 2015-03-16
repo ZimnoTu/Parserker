@@ -25,3 +25,9 @@ TEST_F (ParserkerTest, ParserkerIntelligence)
     parserker.setIntelligence(2);
     EXPECT_EQ (2, parserker.getIntelligence());
 }
+TEST_F (ParserkerTest, ParserkerCharisma)
+{
+    Parserker parserker;
+    parserker.setCharisma(2);
+    EXPECT_EQ (2, parserker.getCharisma());
+}

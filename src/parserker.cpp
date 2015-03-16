@@ -26,3 +26,10 @@ void Parserker::setIntelligence(unsigned int intelligence)
 {
     Parserker::intelligence = intelligence;
 }
+unsigned int Parserker::getCharisma() const {
+    return charisma;
+}
+
+void Parserker::setCharisma(unsigned int charisma) {
+    Parserker::charisma = charisma;
+}
