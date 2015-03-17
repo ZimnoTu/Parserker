@@ -2,6 +2,7 @@ project(parserker-ut)
 
 set(SOURCES
     parserker_test.cpp
+    weapon_test.cpp
     main.cpp
 )
 

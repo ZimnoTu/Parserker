@@ -4,7 +4,6 @@ unsigned int Parserker::getArmor() const
 {
     return armor;
 }
-
 void Parserker::setArmor(unsigned int armor)
 {
     Parserker::armor = armor;
@@ -13,7 +12,6 @@ unsigned int Parserker::getStrength() const
 {
     return strength;
 }
-
 void Parserker::setStrength(unsigned int strength)
 {
     Parserker::strength = strength;
@@ -29,7 +27,6 @@ void Parserker::setIntelligence(unsigned int intelligence)
 unsigned int Parserker::getCharisma() const {
     return charisma;
 }
-
 void Parserker::setCharisma(unsigned int charisma) {
     Parserker::charisma = charisma;
 }
@@ -41,11 +38,27 @@ void Parserker::setWillpower(unsigned int willpower)
 {
     Parserker::willpower = willpower;
 }
-unsigned int Parserker::getHP() const
+unsigned int Parserker::getCurrentHP() const
 {
     return hp;
 }
-void Parserker::setHP(unsigned int hp)
+void Parserker::setCurrentHP(unsigned int hp)
 {
     Parserker::hp = hp;
+}
+unsigned int Parserker::getMaxHP()
+{
+    return maxHp;
+}
+void Parserker::setMaxHP(unsigned int hp)
+{
+    Parserker::maxHp = hp;
+}
+unsigned int Parserker::getEndurance() const
+{
+    return endurance;
+}
+void Parserker::setEndurance(unsigned int endurance)
+{
+    Parserker::endurance = endurance;
 }
