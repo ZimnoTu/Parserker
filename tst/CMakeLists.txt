@@ -4,6 +4,7 @@ set(SOURCES
     parserker_test.cpp
     weapon_test.cpp
     main.cpp
+    armor_test.cpp
 )
 
 set(GMOCK_DIR "../gmock-1.7.0"

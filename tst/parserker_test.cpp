@@ -44,3 +44,7 @@ TEST_F (ParserkerTest, ParserkerMaxHP)
     parserker.setMaxHP(2);
     EXPECT_EQ (2, parserker.getMaxHP());
 }
+TEST_F (ParserkerTest, Add_the_weapon)
+{
+
+}

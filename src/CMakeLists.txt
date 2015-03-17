@@ -6,6 +6,8 @@ set(SOURCES
 	parserker.hpp
 	weapons.cpp
 	weapons.hpp
+	armor.cpp
+	armor.hpp
 )
 
 add_library(${PROJECT_NAME}-lib ${SOURCES})
