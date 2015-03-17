@@ -8,6 +8,8 @@ set(SOURCES
 	weapons.hpp
 	armor.cpp
 	armor.hpp
+	skill.cpp
+	skill.hpp
 )
 
 add_library(${PROJECT_NAME}-lib ${SOURCES})

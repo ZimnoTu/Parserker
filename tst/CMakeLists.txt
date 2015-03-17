@@ -5,6 +5,7 @@ set(SOURCES
     weapon_test.cpp
     main.cpp
     armor_test.cpp
+    skills_test.cpp
 )
 
 set(GMOCK_DIR "../gmock-1.7.0"
