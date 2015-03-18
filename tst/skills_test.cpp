@@ -10,6 +10,4 @@ struct SkillsTest : public Test
 };
 TEST_F (SkillsTest, skillGivesBonus)
 {
-    //Skill skill;
-
 }

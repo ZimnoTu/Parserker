@@ -62,3 +62,7 @@ void Parserker::setEndurance(unsigned int endurance)
 {
     Parserker::endurance = endurance;
 }
+void Parserker::addReadingSkill() {
+    unsigned int intelligence = getIntelligence()+1;
+    setIntelligence(intelligence);
+}

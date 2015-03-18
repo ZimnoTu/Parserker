@@ -1,12 +1,9 @@
 #pragma once
 
+#include <set>
+#include "skill.hpp"
 
 class Parserker {
-public:
-
-
-
-private:
 public:
     unsigned int getArmor() const ;
     void setArmor(unsigned int armor);
@@ -24,6 +21,7 @@ public:
     void setMaxHP(unsigned int hp);
     unsigned int getEndurance() const ;
     void setEndurance(unsigned int endurance);
+    void addReadingSkill();
 
 private:
     unsigned int armor;
@@ -34,6 +32,7 @@ private:
     unsigned int hp;
     unsigned int maxHp;
     unsigned int endurance;
+    std::set<Skill>skills;
 
 };
 

@@ -8,6 +8,7 @@ public:
 
 private:
     int intalligenceBonus;
+    bool operator <(const Skill &skill)const;
 
 };
 
