@@ -50,3 +50,10 @@ TEST_F (ParserkerTest, Add_the_skill)
     parserker.addReadingSkill();
     EXPECT_EQ(3, parserker.getIntelligence());
 }
+TEST_F (ParserkerTest, Add_2TheSameSkill)
+{
+    parserker.setIntelligence(2);
+    parserker.addReadingSkill();
+    parserker.addReadingSkill();
+    EXPECT_EQ(3, parserker.getIntelligence());
+}

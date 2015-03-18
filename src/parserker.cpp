@@ -1,3 +1,4 @@
+#include <iostream>
 #include "parserker.hpp"
 
 unsigned int Parserker::getArmor() const
@@ -63,6 +64,12 @@ void Parserker::setEndurance(unsigned int endurance)
     Parserker::endurance = endurance;
 }
 void Parserker::addReadingSkill() {
-    unsigned int intelligence = getIntelligence()+1;
-    setIntelligence(intelligence);
+
+    if (skills.find(Skill("reading", 1)) == skills.end())
+    {
+        skills.insert(Skill("reading", 1));
+        unsigned int intelligence = getIntelligence() + 1;
+        setIntelligence(intelligence);
+        std::cout << "\tif!!!\n";
+    }
 }
