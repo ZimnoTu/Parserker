@@ -24,14 +24,16 @@ public:
     void addReadingSkill();
 
 private:
-    unsigned int armor;
     unsigned int strength;
+    unsigned int armor;
     unsigned int intelligence;
     unsigned int charisma;
     unsigned int willpower;
+    unsigned int endurance;
+
     unsigned int hp;
     unsigned int maxHp;
-    unsigned int endurance;
+
     std::set<Skill>skills;
 
 };

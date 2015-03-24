@@ -1,19 +1,26 @@
 #pragma once
 #include <string>
+#include <vector>
+
+enum class Attributes : unsigned int { strength = 0, armor = 1, intelligence,
+                                    charisma, willpower, endurance};
 
 
 class Skill {
 public:
-    void setInfluenceOnIntelligence(int bonus);
-    int getInfluenceOnIntalligence();
-    std::string getName() const;
 
-    Skill(std::string name, int bonus);
+    //bool operator <(const Skill &skill)const;
+    int getBonus(Attributes attribute);
 
-    bool operator <(const Skill &skill)const;
 
-private:
+protected:
     std::string name;
-    int intalligenceBonus;
+    std::vector<int>bonus;
+};
+
+class Reading : public Skill
+{
+public:
+    Reading();
 
 };

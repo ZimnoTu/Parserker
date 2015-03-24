@@ -65,11 +65,10 @@ void Parserker::setEndurance(unsigned int endurance)
 }
 void Parserker::addReadingSkill() {
 
-    if (skills.find(Skill("reading", 1)) == skills.end())
+/*    if (skills.find(Skill("reading", 1)) == skills.end())
     {
         skills.insert(Skill("reading", 1));
         unsigned int intelligence = getIntelligence() + 1;
         setIntelligence(intelligence);
-        std::cout << "\tif!!!\n";
-    }
+    }*/
 }
