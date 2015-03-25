@@ -63,22 +63,23 @@ void Parserker::setEndurance(unsigned int endurance)
 {
     Parserker::endurance = endurance;
 }
-/*void Parserker::addReadingSkill() {
-
-    if (skills.find(Skill("reading", 1)) == skills.end())
-    {
-        skills.insert(Skill("reading", 1));
-        unsigned int intelligence = getIntelligence() + 1;
-        setIntelligence(intelligence);
-    }
-}*/
 void Parserker::addSkill(Skill skill)
 {
-    //if (skills.find(skill.getName()) == skills.end())
+    if(!wasSkillAddedBefore(skill))
     {
         skills.insert(skill);
         skill.applyBonuses(*this);
     }
+}
+
+bool Parserker::wasSkillAddedBefore(Skill &skill)
+{
+    std::string nameOfSkill = skill.getName();
+    unsigned short counter = 0;
+    for(Skill s : skills)
+        if(s.getName() == nameOfSkill)
+            ++counter;
+    return static_cast<bool>(counter);
 }
 
 Parserker::Parserker() {

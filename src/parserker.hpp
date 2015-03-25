@@ -39,5 +39,6 @@ private:
 
     std::set<Skill>skills;
 
+    bool wasSkillAddedBefore(Skill &skill);
 };
 
