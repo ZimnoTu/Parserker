@@ -63,12 +63,29 @@ void Parserker::setEndurance(unsigned int endurance)
 {
     Parserker::endurance = endurance;
 }
-void Parserker::addReadingSkill() {
+/*void Parserker::addReadingSkill() {
 
-/*    if (skills.find(Skill("reading", 1)) == skills.end())
+    if (skills.find(Skill("reading", 1)) == skills.end())
     {
         skills.insert(Skill("reading", 1));
         unsigned int intelligence = getIntelligence() + 1;
         setIntelligence(intelligence);
-    }*/
+    }
+}*/
+void Parserker::addSkill(Skill skill)
+{
+    //if (skills.find(skill.getName()) == skills.end())
+    {
+        skills.insert(skill);
+        skill.applyBonuses(*this);
+    }
+}
+
+Parserker::Parserker() {
+    strength = 0;
+    armor = 0;
+    intelligence = 0;
+    charisma = 0;
+    willpower = 0;
+    endurance = 0;
 }

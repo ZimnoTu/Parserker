@@ -2,6 +2,8 @@
 
 #include <set>
 #include "skill.hpp"
+class Skill;
+class Reading;
 
 class Parserker {
 public:
@@ -21,7 +23,8 @@ public:
     void setMaxHP(unsigned int hp);
     unsigned int getEndurance() const ;
     void setEndurance(unsigned int endurance);
-    void addReadingSkill();
+    void addSkill(Skill skill);
+    Parserker();
 
 private:
     unsigned int strength;

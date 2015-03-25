@@ -8,11 +8,10 @@ struct SkillsTest : public Test
 {
 
 };
-TEST_F (SkillsTest, skillIsMade)
+TEST_F (SkillsTest, applylingBonus)
 {
-    std::vector<Skill>skills;
+    Parserker parserker;
     Reading reading;
-    skills.push_back(reading);
-    //unsigned int position = Attributes::intelligence;
-    EXPECT_EQ(1, skills.at(0).getBonus(Attributes::intelligence));
+    reading.applyBonuses(parserker);
+    EXPECT_EQ(1, parserker.getIntelligence());
 }

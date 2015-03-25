@@ -1,26 +1,39 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "parserker.hpp"
 
-enum class Attributes : unsigned int { strength = 0, armor = 1, intelligence,
-                                    charisma, willpower, endurance};
+class Parserker;
 
+struct Bonus{
+    Bonus();
+    int strength;
+    int armor;
+    int intelligence;
+    int charisma;
+    int willpower;
+    int endurance;
+};
 
 class Skill {
 public:
-
-    //bool operator <(const Skill &skill)const;
-    int getBonus(Attributes attribute);
-
+    void applyBonuses(Parserker &parserker);
+    std::string getName() const;
+    bool operator<(const Skill &skill) const;
 
 protected:
     std::string name;
-    std::vector<int>bonus;
+    Bonus bonus;
 };
 
 class Reading : public Skill
 {
 public:
     Reading();
+};
 
+class MakeUp : public Skill
+{
+public:
+    MakeUp();
 };
