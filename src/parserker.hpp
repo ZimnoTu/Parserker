@@ -15,6 +15,8 @@ public:
     Statistics& getStatistics();
     void takeWeapon(Weapon weapon);
     double getCurrentStuffMass();
+    bool isPossibleAddAnotherStuff(Weapon weapon);
+    void setMaxStuffMass(double maxMass);
 
     unsigned int getArmor() const ;
     void setArmor(unsigned int armor);
@@ -38,10 +40,11 @@ private:
     std::set<Skill>skills;
     Statistics statistics;
     double currentStuffMass;
+    double maxStuffMass;
     Weapon currentWeapon;
 
-    bool wasSkillAddedBefore(Skill &skill);
 
+    bool wasSkillAddedBefore(Skill &skill);
     void changeStatistics(Weapon &weapon);
 
 

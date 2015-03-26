@@ -63,3 +63,15 @@ TEST_F (ParserkerTest, Parserker_weapon_ChangesCurrentStuffMass)
     parserker.takeWeapon(stick);
     EXPECT_EQ (2.3, parserker.getCurrentStuffMass());
 }
+TEST_F (ParserkerTest, Parserker_weapon_isNotTooHeavy)
+{
+    Weapon stick("stick", 1, 2.3);
+    parserker.setMaxStuffMass(10.0);
+    EXPECT_TRUE(parserker.isPossibleAddAnotherStuff(stick));
+}
+TEST_F (ParserkerTest, Parserker_weapon_ToHeavyStuffs)
+{
+    Weapon stick("stick", 10, 2.3);
+    parserker.setMaxStuffMass(1.0);
+    EXPECT_FALSE(parserker.isPossibleAddAnotherStuff(stick));
+}

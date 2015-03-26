@@ -1,6 +1,5 @@
 #include <iostream>
 #include "parserker.hpp"
-#include "statistics.hpp"
 
 void Parserker::addSkill(Skill skill)
 {
@@ -112,4 +111,15 @@ double Parserker::getCurrentStuffMass()
 Parserker::Parserker()
 {
     currentStuffMass = 0;
+    maxStuffMass = 0;
+}
+
+bool Parserker::isPossibleAddAnotherStuff(Weapon weapon)
+{
+    return (maxStuffMass >= currentStuffMass + weapon.getMass() );
+}
+
+void Parserker::setMaxStuffMass(double maxMass)
+{
+    maxStuffMass = maxMass;
 }
