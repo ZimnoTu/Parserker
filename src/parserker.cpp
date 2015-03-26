@@ -91,10 +91,21 @@ void Parserker::setEndurance(unsigned int endurance)
 }
 
 void Parserker::takeWeapon(Weapon weapon) {
-    currentWeapon = weapon;
+    //currentWeapon = weapon;
     changeStatistics(weapon);
 }
 
 void Parserker::changeStatistics(Weapon &weapon) {
     statistics.setStrength(this->getStrength() + weapon.getStrengthBonus());
+    currentStuffMass = getCurrenStuffMass() + weapon.getMass();
+}
+
+double Parserker::getCurrenStuffMass()
+{
+    return currentStuffMass;
+}
+
+Parserker::Parserker()
+{
+    currentStuffMass = 0;
 }

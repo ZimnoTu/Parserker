@@ -49,3 +49,9 @@ TEST_F (ParserkerTest, Parserker_weapon_ChangesStrength)
     parserker.takeWeapon(stick);
     EXPECT_EQ (1, parserker.getStrength());
 }
+TEST_F (ParserkerTest, Parserker_weapon_ChangesCurrentStuffMass)
+{
+    Weapon stick("stick", 1, 2.3);
+    parserker.takeWeapon(stick);
+    EXPECT_EQ (2.3, parserker.getCurrenStuffMass());
+}

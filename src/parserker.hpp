@@ -14,6 +14,7 @@ public:
     void addSkill(Skill skill);
     Statistics& getStatistics();
     void takeWeapon(Weapon weapon);
+    double getCurrenStuffMass();
 
     unsigned int getArmor() const ;
     void setArmor(unsigned int armor);
@@ -31,14 +32,18 @@ public:
     void setMaxHP(unsigned int hp);
     unsigned int getEndurance() const ;
     void setEndurance(unsigned int endurance);
+    Parserker();
 
 private:
     std::set<Skill>skills;
     Statistics statistics;
-    Weapon currentWeapon;
+    double currentStuffMass;
+   // Weapon currentWeapon;
 
     bool wasSkillAddedBefore(Skill &skill);
 
     void changeStatistics(Weapon &weapon);
+
+
 };
 
