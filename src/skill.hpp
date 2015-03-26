@@ -21,10 +21,12 @@ public:
     void applyBonuses(Statistics &statistics);
     std::string getName() const;
     bool operator<(const Skill &skill) const;
+    bool operator==(const Skill &skill) const;
 
 protected:
     std::string name;
     Bonus bonus;
+
 };
 
 class Reading : public Skill

@@ -19,6 +19,11 @@ bool Skill::operator<(const Skill &skill) const
     return name.compare(skill.getName()) < 0;
 }
 
+bool Skill::operator==(const Skill &skill) const
+{
+    return name == skill.getName();
+}
+
 Reading::Reading()
 {
     name = "reading";
@@ -40,3 +45,4 @@ Bonus::Bonus()
     willpower = 0;
     endurance = 0;
 }
+

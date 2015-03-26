@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "parserker.hpp"
 
 void Parserker::addSkill(Skill skill)
@@ -12,12 +13,8 @@ void Parserker::addSkill(Skill skill)
 
 bool Parserker::wasSkillAddedBefore(Skill &skill)
 {
-    std::string nameOfSkill = skill.getName();
-    unsigned short counter = 0;
-    for(auto item : skills)
-        if(item.getName() == nameOfSkill)
-            ++counter;
-    return static_cast<bool>(counter);
+    bool result = static_cast<bool>(std::count(skills.begin(), skills.end(), skill));
+    return result;
 }
 
 Statistics &Parserker::getStatistics() {
