@@ -14,7 +14,7 @@ public:
     void addSkill(Skill skill);
     Statistics& getStatistics();
     void takeWeapon(Weapon weapon);
-    double getCurrenStuffMass();
+    double getCurrentStuffMass();
 
     unsigned int getArmor() const ;
     void setArmor(unsigned int armor);
@@ -38,7 +38,7 @@ private:
     std::set<Skill>skills;
     Statistics statistics;
     double currentStuffMass;
-   // Weapon currentWeapon;
+    Weapon currentWeapon;
 
     bool wasSkillAddedBefore(Skill &skill);
 

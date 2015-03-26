@@ -19,5 +19,5 @@ Weapon::Weapon()
 {
     name = "defult";
     strengthBonus = 0;
-    mass = 0;
+    mass = 0.0;
 }
