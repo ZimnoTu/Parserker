@@ -8,10 +8,3 @@ struct SkillsTest : public Test
 {
 
 };
-/*TEST_F (SkillsTest, applylingBonus) //POPRAWIC
-{
-    Parserker parserker;
-    Reading reading;
-    reading.applyBonuses(parserker);
-    EXPECT_EQ(1, parserker.getIntelligence());
-}*/

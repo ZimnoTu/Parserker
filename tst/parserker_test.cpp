@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
+#include <weapons.hpp>
 #include "parserker.hpp"
 #include "skill.hpp"
 
@@ -14,7 +15,8 @@ TEST_F (ParserkerTest, BlankParserker)
 {
     EXPECT_EQ (0, parserker.getIntelligence());
 }
-TEST_F (ParserkerTest, ParserkerArmor) {
+TEST_F (ParserkerTest, Parserker_settingIntelligence)
+{
     parserker.setIntelligence(2);
     EXPECT_EQ (2, parserker.getIntelligence());
 }
@@ -40,4 +42,10 @@ TEST_F (ParserkerTest, Add_2TheSameSkill)
     parserker.addSkill(reading);
     parserker.addSkill(reading);
     EXPECT_EQ(1, parserker.getIntelligence());
+}
+TEST_F (ParserkerTest, Parserker_weapon_ChangesStrength)
+{
+    Weapon stick("stick", 1, 1.0);
+    parserker.takeWeapon(stick);
+    EXPECT_EQ (1, parserker.getStrength());
 }

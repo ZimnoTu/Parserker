@@ -11,7 +11,7 @@ struct WeaponsTest : public Test
 };
 TEST_F (WeaponsTest, wildStickApears)
 {
-    Weapon stick(1.0, 1);
+    Weapon stick("stick", 1, 1.0);
     EXPECT_EQ(1.0, stick.getMass());
     EXPECT_EQ(1, stick.getStrengthBonus());
 }
