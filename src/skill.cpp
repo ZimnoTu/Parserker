@@ -1,13 +1,13 @@
 #include "skill.hpp"
 
-void Skill::applyBonuses(Parserker &parserker)
+void Skill::applyBonuses(Statistics &statistics)
 {
-    parserker.setStrength(parserker.getStrength() + bonus.strength);
-    parserker.setArmor(parserker.getArmor() + bonus.armor);
-    parserker.setIntelligence(parserker.getIntelligence() + bonus.intelligence);
-    parserker.setCharisma(parserker.getCharisma() + bonus.charisma);
-    parserker.setWillpower(parserker.getWillpower() + bonus.willpower);
-    parserker.setEndurance(parserker.getEndurance() + bonus.endurance);
+    statistics.setStrength(statistics.getStrength() + bonus.strength);
+    statistics.setArmor(statistics.getArmor() + bonus.armor);
+    statistics.setIntelligence(statistics.getIntelligence() + bonus.intelligence);
+    statistics.setCharisma(statistics.getCharisma() + bonus.charisma);
+    statistics.setWillpower(statistics.getWillpower() + bonus.willpower);
+    statistics.setEndurance(statistics.getEndurance() + bonus.endurance);
 }
 
 std::string Skill::getName() const {

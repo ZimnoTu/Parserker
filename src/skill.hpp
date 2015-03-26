@@ -4,6 +4,7 @@
 #include "parserker.hpp"
 
 class Parserker;
+class Statistics;
 
 struct Bonus{
     Bonus();
@@ -17,7 +18,7 @@ struct Bonus{
 
 class Skill {
 public:
-    void applyBonuses(Parserker &parserker);
+    void applyBonuses(Statistics &statistics);
     std::string getName() const;
     bool operator<(const Skill &skill) const;
 

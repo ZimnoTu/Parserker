@@ -1,74 +1,13 @@
 #include <iostream>
 #include "parserker.hpp"
+#include "statistics.hpp"
 
-unsigned int Parserker::getArmor() const
-{
-    return armor;
-}
-void Parserker::setArmor(unsigned int armor)
-{
-    Parserker::armor = armor;
-}
-unsigned int Parserker::getStrength() const
-{
-    return strength;
-}
-void Parserker::setStrength(unsigned int strength)
-{
-    Parserker::strength = strength;
-}
-unsigned int Parserker::getIntelligence() const
-{
-    return intelligence;
-}
-void Parserker::setIntelligence(unsigned int intelligence)
-{
-    Parserker::intelligence = intelligence;
-}
-unsigned int Parserker::getCharisma() const {
-    return charisma;
-}
-void Parserker::setCharisma(unsigned int charisma) {
-    Parserker::charisma = charisma;
-}
-unsigned int Parserker::getWillpower() const
-{
-    return willpower;
-}
-void Parserker::setWillpower(unsigned int willpower)
-{
-    Parserker::willpower = willpower;
-}
-unsigned int Parserker::getCurrentHP() const
-{
-    return hp;
-}
-void Parserker::setCurrentHP(unsigned int hp)
-{
-    Parserker::hp = hp;
-}
-unsigned int Parserker::getMaxHP()
-{
-    return maxHp;
-}
-void Parserker::setMaxHP(unsigned int hp)
-{
-    Parserker::maxHp = hp;
-}
-unsigned int Parserker::getEndurance() const
-{
-    return endurance;
-}
-void Parserker::setEndurance(unsigned int endurance)
-{
-    Parserker::endurance = endurance;
-}
 void Parserker::addSkill(Skill skill)
 {
     if(!wasSkillAddedBefore(skill))
     {
         skills.insert(skill);
-        skill.applyBonuses(*this);
+        skill.applyBonuses(this->getStatistics());
     }
 }
 
@@ -76,17 +15,77 @@ bool Parserker::wasSkillAddedBefore(Skill &skill)
 {
     std::string nameOfSkill = skill.getName();
     unsigned short counter = 0;
-    for(Skill s : skills)
-        if(s.getName() == nameOfSkill)
+    for(auto item : skills)
+        if(item.getName() == nameOfSkill)
             ++counter;
     return static_cast<bool>(counter);
 }
 
-Parserker::Parserker() {
-    strength = 0;
-    armor = 0;
-    intelligence = 0;
-    charisma = 0;
-    willpower = 0;
-    endurance = 0;
+Statistics &Parserker::getStatistics() {
+    return statistics;
+}
+
+unsigned int Parserker::getIntelligence() const
+{
+    return statistics.getIntelligence();
+}
+void Parserker::setIntelligence(unsigned int intelligence)
+{
+    statistics.setIntelligence(intelligence);
+}
+unsigned int Parserker::getArmor() const
+{
+    return statistics.getArmor();
+}
+void Parserker::setArmor(unsigned int armor)
+{
+    statistics.setArmor(armor);
+}
+unsigned int Parserker::getStrength() const
+{
+    return statistics.getStrength();
+}
+void Parserker::setStrength(unsigned int strength)
+{
+    statistics.setStrength(strength);
+}
+unsigned int Parserker::getCharisma() const
+{
+    return statistics.getCharisma();
+}
+void Parserker::setCharisma(unsigned int charisma)
+{
+    statistics.setCharisma(charisma);
+}
+unsigned int Parserker::getWillpower() const
+{
+    return statistics.getWillpower();
+}
+void Parserker::setWillpower(unsigned int willpower)
+{
+    statistics.getWillpower();
+}
+unsigned int Parserker::getCurrentHP() const
+{
+    return statistics.getCurrentHP();
+}
+void Parserker::setCurrentHP(unsigned int hp)
+{
+    statistics.setCurrentHP(hp);
+}
+unsigned int Parserker::getMaxHP()
+{
+    return statistics.getMaxHP();
+}
+void Parserker::setMaxHP(unsigned int hp)
+{
+    statistics.setMaxHP(hp);
+}
+unsigned int Parserker::getEndurance() const
+{
+    return statistics.getEndurance();
+}
+void Parserker::setEndurance(unsigned int endurance)
+{
+    statistics.setEndurance(endurance);
 }

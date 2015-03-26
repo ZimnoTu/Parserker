@@ -1,17 +1,8 @@
 #pragma once
 
-#include <set>
-#include "skill.hpp"
-#include "statistics.hpp"
 
-class Skill;
-class Reading;
-
-class Parserker
-{
+class Statistics {
 public:
-    void addSkill(Skill skill);
-    Statistics& getStatistics();
     unsigned int getArmor() const ;
     void setArmor(unsigned int armor);
     unsigned int getStrength() const;
@@ -29,10 +20,18 @@ public:
     unsigned int getEndurance() const ;
     void setEndurance(unsigned int endurance);
 
-private:
-    std::set<Skill>skills;
-    Statistics statistics;
+    Statistics();
 
-    bool wasSkillAddedBefore(Skill &skill);
+private:
+    unsigned int hp;
+    unsigned int maxHp;
+    unsigned int armor;
+    unsigned int strength;
+    unsigned int intelligence;
+    unsigned int charisma;
+    unsigned int willpower;
+    unsigned int endurance;
 };
+
+
 
