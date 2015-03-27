@@ -93,10 +93,23 @@ TEST_F(ParserkerTest, Parserker_canPunOnArmor_Head)
     parserker.setMaxStuffMass(2.0);
     EXPECT_TRUE(parserker.isPossibleAddAnotherStuff(helmet));
 }
+TEST_F(ParserkerTest, Parserker_canNotPunOnArmor_Head)
+{
+    HeadArmor helmet(1, 3.0);
+    parserker.setMaxStuffMass(2.0);
+    EXPECT_FALSE(parserker.isPossibleAddAnotherStuff(helmet));
+}
 TEST_F (ParserkerTest, Parserker_armor_putOnArmor_Head)
 {
     HeadArmor helmet(1, 1.0);
     parserker.setMaxStuffMass(10);
     parserker.putOnArmor(helmet);
     EXPECT_EQ(1.0, parserker.getCurrentStuffMass());
+}
+TEST_F (ParserkerTest, Parserker_armor_putOnArmor_Head_NOT)
+{
+    HeadArmor helmet(1, 11.0);
+    parserker.setMaxStuffMass(10);
+    parserker.putOnArmor(helmet);
+    EXPECT_EQ(0.0, parserker.getCurrentStuffMass());
 }

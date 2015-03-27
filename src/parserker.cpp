@@ -133,8 +133,11 @@ double Parserker::getHowMuchCanLiftNow()
 
 void Parserker::putOnArmor(HeadArmor headArmor)
 {
-    armor.headArmor = headArmor;
-    currentStuffMass = getCurrentStuffMass() + headArmor.getMass();
+    if(isPossibleAddAnotherStuff(headArmor))
+    {
+        armor.headArmor = headArmor;
+        currentStuffMass = getCurrentStuffMass() + headArmor.getMass();
+    }
 }
 
 bool Parserker::isPossibleAddAnotherStuff(HeadArmor headArmor)
