@@ -17,7 +17,8 @@ bool Parserker::wasSkillAddedBefore(Skill &skill)
     return result;
 }
 
-Statistics &Parserker::getStatistics() {
+Statistics &Parserker::getStatistics()
+{
     return statistics;
 }
 
@@ -29,54 +30,16 @@ void Parserker::setIntelligence(unsigned int intelligence)
 {
     statistics.setIntelligence(intelligence);
 }
-unsigned int Parserker::getArmor() const
-{
-    return statistics.getArmor();
-}
-void Parserker::setArmor(unsigned int armor)
-{
-    statistics.setArmor(armor);
-}
 unsigned int Parserker::getStrength() const
 {
     return statistics.getStrength();
 }
-void Parserker::setStrength(unsigned int strength)
-{
-    statistics.setStrength(strength);
-}
+
 unsigned int Parserker::getCharisma() const
 {
     return statistics.getCharisma();
 }
-void Parserker::setCharisma(unsigned int charisma)
-{
-    statistics.setCharisma(charisma);
-}
-unsigned int Parserker::getWillpower() const
-{
-    return statistics.getWillpower();
-}
-void Parserker::setWillpower(unsigned int willpower)
-{
-    statistics.getWillpower();
-}
-unsigned int Parserker::getCurrentHP() const
-{
-    return statistics.getCurrentHP();
-}
-void Parserker::setCurrentHP(unsigned int hp)
-{
-    statistics.setCurrentHP(hp);
-}
-unsigned int Parserker::getMaxHP()
-{
-    return statistics.getMaxHP();
-}
-void Parserker::setMaxHP(unsigned int hp)
-{
-    statistics.setMaxHP(hp);
-}
+
 unsigned int Parserker::getEndurance() const
 {
     return statistics.getEndurance();
@@ -99,10 +62,18 @@ void Parserker::takeWeapon(Weapon weapon)
 
 void Parserker::changeStatistics(Weapon &newWeapon)
 {
-    auto newStrength = getStrength() - currentWeapon.getStrengthBonus() + newWeapon.getStrengthBonus();
-    auto newStuffMass = getCurrentStuffMass() - currentWeapon.getMass() + newWeapon.getMass();
+    auto newStrength = getStrengthWithNewWeapon(newWeapon);
+    auto newStuffMass = getCurrentStuffMassWithNewWeapon(newWeapon);
     statistics.setStrength(newStrength);
     currentStuffMass = newStuffMass;
+}
+
+double Parserker::getCurrentStuffMassWithNewWeapon(Weapon &newWeapon) {
+    return getCurrentStuffMass() - currentWeapon.getMass() + newWeapon.getMass();
+}
+
+unsigned int Parserker::getStrengthWithNewWeapon(Weapon &newWeapon) {
+    return getStrength() - currentWeapon.getStrengthBonus() + newWeapon.getStrengthBonus();
 }
 
 double Parserker::getCurrentStuffMass()
@@ -135,12 +106,37 @@ void Parserker::putOnArmor(HeadArmor headArmor)
 {
     if(isPossibleAddAnotherStuff(headArmor))
     {
+        changeStatistics(headArmor);
         armor.headArmor = headArmor;
-        currentStuffMass = getCurrentStuffMass() + headArmor.getMass();
     }
+}
+
+void Parserker::changeStatistics(HeadArmor &newHeadArmor)
+{
+   /* auto newStrength = getStrengthWithNewWeapon(newWeapon);
+    auto newStuffMass = getCurrentStuffMassWithNewWeapon(newWeapon);
+    statistics.setStrength(newStrength);
+    currentStuffMass = newStuffMass;*/
+    auto newDefence = getDefenceWithNewArmor (newHeadArmor);
+    auto newStuffMass = getCurrentStuffMassWithNewArmor(newHeadArmor);
+    statistics.setDefence(newDefence);
+    currentStuffMass = newStuffMass;
 }
 
 bool Parserker::isPossibleAddAnotherStuff(HeadArmor headArmor)
 {
     return (maxStuffMass >= currentStuffMass + headArmor.getMass());
+}
+
+int Parserker::getDefenceWithNewArmor(HeadArmor &headArmor) {
+    return getDefence() - armor.headArmor.getDefenceBonus() + headArmor.getDefenceBonus();
+}
+
+double Parserker::getCurrentStuffMassWithNewArmor(HeadArmor &headArmor)
+{
+    return getCurrentStuffMass() - armor.headArmor.getMass() + headArmor.getMass();
+}
+
+int Parserker::getDefence() const {
+    return statistics.getDefence();
 }

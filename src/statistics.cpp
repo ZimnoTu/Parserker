@@ -3,7 +3,7 @@
 Statistics::Statistics()
 {
     strength = 0;
-    armor = 0;
+    defence = 0;
     intelligence = 0;
     charisma = 0;
     willpower = 0;
@@ -12,14 +12,13 @@ Statistics::Statistics()
     hp = 0;
 }
 
-unsigned int Statistics::getArmor() const
-{
-    return armor;
+int Statistics::getDefence() const{
+    return defence;
 }
 
-void Statistics::setArmor(unsigned int armor)
+void Statistics::setDefence(int armor)
 {
-    Statistics::armor = armor;
+    Statistics::defence = armor;
 }
 
 unsigned int Statistics::getStrength() const

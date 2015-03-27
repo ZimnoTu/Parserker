@@ -9,6 +9,8 @@ public:
     HeadArmor(int defence, double mass);
     double getMass();
 
+    int getDefenceBonus();
+
 private:
     int defenceBonus;
     double mass;

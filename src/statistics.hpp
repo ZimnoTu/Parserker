@@ -3,8 +3,8 @@
 
 class Statistics {
 public:
-    unsigned int getArmor() const ;
-    void setArmor(unsigned int armor);
+    int getDefence() const;
+    void setDefence(int armor);
     unsigned int getStrength() const;
     void setStrength(unsigned int strength);
     unsigned int getIntelligence() const ;
@@ -25,12 +25,12 @@ public:
 private:
     unsigned int hp;
     unsigned int maxHp;
-    unsigned int armor;
-    unsigned int strength;
-    unsigned int intelligence;
-    unsigned int charisma;
-    unsigned int willpower;
-    unsigned int endurance;
+    int defence;
+    int strength;
+    int intelligence;
+    int charisma;
+    int willpower;
+    int endurance;
 };
 
 

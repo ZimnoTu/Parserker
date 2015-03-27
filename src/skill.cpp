@@ -3,7 +3,7 @@
 void Skill::applyBonuses(Statistics &statistics)
 {
     statistics.setStrength(statistics.getStrength() + bonus.strength);
-    statistics.setArmor(statistics.getArmor() + bonus.armor);
+    statistics.setDefence(statistics.getDefence() + bonus.armor);
     statistics.setIntelligence(statistics.getIntelligence() + bonus.intelligence);
     statistics.setCharisma(statistics.getCharisma() + bonus.charisma);
     statistics.setWillpower(statistics.getWillpower() + bonus.willpower);

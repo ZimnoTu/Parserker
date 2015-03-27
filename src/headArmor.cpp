@@ -24,3 +24,7 @@ double HeadArmor::getMass()
 {
     return mass;
 }
+
+int HeadArmor::getDefenceBonus() {
+    return defenceBonus;
+}
