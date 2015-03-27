@@ -46,6 +46,7 @@ TEST_F (ParserkerTest, Add_2TheSameSkill)
 TEST_F (ParserkerTest, Parserker_weapon_ChangesStrength)
 {
     Weapon stick("stick", 1, 1.0);
+    parserker.setMaxStuffMass(10);
     parserker.takeWeapon(stick);
     EXPECT_EQ (1, parserker.getStrength());
 }
@@ -53,6 +54,7 @@ TEST_F (ParserkerTest, Parserker_2_Weapons)
 {
     Weapon stick("stick", 1, 1.0);
     Weapon stick2("bigger stick", 2, 2.3);
+    parserker.setMaxStuffMass(10);
     parserker.takeWeapon(stick);
     parserker.takeWeapon(stick2);
     EXPECT_EQ (2, parserker.getStrength());
@@ -60,6 +62,7 @@ TEST_F (ParserkerTest, Parserker_2_Weapons)
 TEST_F (ParserkerTest, Parserker_weapon_ChangesCurrentStuffMass)
 {
     Weapon stick("stick", 1, 2.3);
+    parserker.setMaxStuffMass(10);
     parserker.takeWeapon(stick);
     EXPECT_EQ (2.3, parserker.getCurrentStuffMass());
 }
@@ -74,4 +77,12 @@ TEST_F (ParserkerTest, Parserker_weapon_ToHeavyStuffs)
     Weapon stick("stick", 10, 2.3);
     parserker.setMaxStuffMass(1.0);
     EXPECT_FALSE(parserker.isPossibleAddAnotherStuff(stick));
+}
+TEST_F (ParserkerTest, Parserker_weapon_howMuchCanLiftNow)
+{
+    Weapon stick("stick", 1, 5.0);
+    parserker.setEndurance(1);
+    parserker.setMaxStuffMass(10);
+    parserker.takeWeapon(stick);
+    EXPECT_EQ (10.0, parserker.getHowMuchCanLiftNow());
 }

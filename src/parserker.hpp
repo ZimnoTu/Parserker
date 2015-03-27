@@ -17,6 +17,7 @@ public:
     double getCurrentStuffMass();
     bool isPossibleAddAnotherStuff(Weapon weapon);
     void setMaxStuffMass(double maxMass);
+    double getHowMuchCanLiftNow();
 
     unsigned int getArmor() const ;
     void setArmor(unsigned int armor);

@@ -88,13 +88,18 @@ void Parserker::setEndurance(unsigned int endurance)
 
 void Parserker::takeWeapon(Weapon weapon)
 {
-    changeStatistics(weapon);
-    currentWeapon = weapon;
+    if(isPossibleAddAnotherStuff(weapon))
+    {
+        changeStatistics(weapon);
+        currentWeapon = weapon;
+    }
+ //   else
+  //      std::cout << "Too many stuff, you're to weak\n";
 }
 
 void Parserker::changeStatistics(Weapon &newWeapon)
 {
-    auto newStrength = this->getStrength() - currentWeapon.getStrengthBonus() + newWeapon.getStrengthBonus();
+    auto newStrength = getStrength() - currentWeapon.getStrengthBonus() + newWeapon.getStrengthBonus();
     auto newStuffMass = getCurrentStuffMass() - currentWeapon.getMass() + newWeapon.getMass();
     statistics.setStrength(newStrength);
     currentStuffMass = newStuffMass;
@@ -118,5 +123,9 @@ bool Parserker::isPossibleAddAnotherStuff(Weapon weapon)
 
 void Parserker::setMaxStuffMass(double maxMass)
 {
-    maxStuffMass = maxMass;
+    maxStuffMass = maxMass + getEndurance() * 5;
+}
+
+double Parserker::getHowMuchCanLiftNow() {
+    return maxStuffMass - currentStuffMass;
 }
