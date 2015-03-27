@@ -1,13 +1,10 @@
 #pragma once
 
-class Armor
-{
-public:
-    Armor(double mass, unsigned int defence);
-    double getMass();
-    unsigned int getDefence();
+#include "headArmor.hpp"
 
-private:
-    double mass;
-    unsigned int defence;
+struct Armor
+{
+    HeadArmor headArmor;
+
+    void wearArmor(HeadArmor armor);
 };

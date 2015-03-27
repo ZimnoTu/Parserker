@@ -1,6 +1,6 @@
 #include "armor.hpp"
 
-Armor::Armor(double mass, unsigned int defence)
+/*Armor::Armor(unsigned int defence, double mass)
 {
     Armor::mass = mass;
     Armor::defence = defence;
@@ -11,4 +11,8 @@ unsigned int Armor::getDefence() {
 }
 double Armor::getMass() {
     return mass;
+}*/
+void Armor::wearArmor(HeadArmor armor)
+{
+    headArmor = armor;
 }

@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include <weapons.hpp>
+#include <armor.hpp>
 #include "parserker.hpp"
 #include "skill.hpp"
 
@@ -86,3 +87,10 @@ TEST_F (ParserkerTest, Parserker_weapon_howMuchCanLiftNow)
     parserker.takeWeapon(stick);
     EXPECT_EQ (10.0, parserker.getHowMuchCanLiftNow());
 }
+
+/*TEST_F (ParserkerTest, Parserker_armor_putOnArmor_Head)
+{
+    Armor helmet(1, 1.0);
+    parserker.putOn
+
+}*/

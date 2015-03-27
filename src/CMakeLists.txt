@@ -12,6 +12,8 @@ set(SOURCES
 	skill.hpp
 	statistics.cpp
 	statistics.hpp
+	headArmor.cpp
+	headArmor.hpp
 )
 
 add_library(${PROJECT_NAME}-lib ${SOURCES})
