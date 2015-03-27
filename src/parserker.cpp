@@ -126,6 +126,13 @@ void Parserker::setMaxStuffMass(double maxMass)
     maxStuffMass = maxMass + getEndurance() * 5;
 }
 
-double Parserker::getHowMuchCanLiftNow() {
+double Parserker::getHowMuchCanLiftNow()
+{
     return maxStuffMass - currentStuffMass;
+}
+
+void Parserker::putOnArmor(HeadArmor headArmor)
+{
+    armor.headArmor = headArmor;
+    currentStuffMass = getCurrentStuffMass() + headArmor.getMass();
 }

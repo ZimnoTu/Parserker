@@ -4,6 +4,7 @@
 #include "skill.hpp"
 #include "statistics.hpp"
 #include "weapons.hpp"
+#include "armor.hpp"
 
 class Skill;
 class Reading;
@@ -18,6 +19,7 @@ public:
     bool isPossibleAddAnotherStuff(Weapon weapon);
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();
+    void putOnArmor(HeadArmor headArmor);
 
     unsigned int getArmor() const ;
     void setArmor(unsigned int armor);
@@ -43,6 +45,7 @@ private:
     double currentStuffMass;
     double maxStuffMass;
     Weapon currentWeapon;
+    Armor armor;
 
 
     bool wasSkillAddedBefore(Skill &skill);

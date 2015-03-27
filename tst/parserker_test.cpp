@@ -87,10 +87,11 @@ TEST_F (ParserkerTest, Parserker_weapon_howMuchCanLiftNow)
     parserker.takeWeapon(stick);
     EXPECT_EQ (10.0, parserker.getHowMuchCanLiftNow());
 }
-
-/*TEST_F (ParserkerTest, Parserker_armor_putOnArmor_Head)
+TEST_F (ParserkerTest, Parserker_armor_putOnArmor_Head)
 {
-    Armor helmet(1, 1.0);
-    parserker.putOn
+    HeadArmor helmet(1, 1.0);
+    parserker.setMaxStuffMass(10);
+    parserker.putOnArmor(helmet);
+    EXPECT_EQ(1.0, parserker.getCurrentStuffMass());
 
-}*/
+}
