@@ -17,6 +17,7 @@ public:
     void takeWeapon(Weapon weapon);
     double getCurrentStuffMass();
     bool isPossibleAddAnotherStuff(Weapon weapon);
+    bool isPossibleAddAnotherStuff(HeadArmor headArmor);
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();
     void putOnArmor(HeadArmor headArmor);

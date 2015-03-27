@@ -136,3 +136,8 @@ void Parserker::putOnArmor(HeadArmor headArmor)
     armor.headArmor = headArmor;
     currentStuffMass = getCurrentStuffMass() + headArmor.getMass();
 }
+
+bool Parserker::isPossibleAddAnotherStuff(HeadArmor headArmor)
+{
+    return (maxStuffMass >= currentStuffMass + headArmor.getMass());
+}
