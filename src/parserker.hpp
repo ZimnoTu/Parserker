@@ -22,12 +22,12 @@ public:
     double getHowMuchCanLiftNow();
     void putOnArmor(HeadArmor headArmor);
 
-    unsigned int getStrength() const;
+    int getStrength() const;
     int getDefence () const;
-    unsigned int getIntelligence() const ;
+    int getIntelligence() const ;
     void setIntelligence(unsigned int intelligence);
-    unsigned int getCharisma() const;
-    unsigned int getEndurance() const ;
+    int getCharisma() const;
+    int getEndurance() const ;
     void setEndurance(unsigned int endurance);
     Parserker();
 
@@ -44,7 +44,7 @@ private:
     void changeStatistics(Weapon &newWeapon);
 
 
-    unsigned int getStrengthWithNewWeapon(Weapon &newWeapon);
+    int getStrengthWithNewWeapon(Weapon &newWeapon);
 
     double getCurrentStuffMassWithNewWeapon(Weapon &newWeapon);
 

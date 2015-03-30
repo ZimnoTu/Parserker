@@ -5,19 +5,19 @@ class Statistics {
 public:
     int getDefence() const;
     void setDefence(int armor);
-    unsigned int getStrength() const;
+    int getStrength() const;
     void setStrength(unsigned int strength);
-    unsigned int getIntelligence() const ;
+    int getIntelligence() const ;
     void setIntelligence(unsigned int intelligence);
-    unsigned int getCharisma() const;
+    int getCharisma() const;
     void setCharisma(unsigned int charisma);
-    unsigned int getWillpower() const;
+    int getWillpower() const;
     void setWillpower(unsigned int charisma);
     unsigned int getCurrentHP() const;
     void setCurrentHP(unsigned int hp);
     unsigned int getMaxHP();
     void setMaxHP(unsigned int hp);
-    unsigned int getEndurance() const ;
+    int getEndurance() const ;
     void setEndurance(unsigned int endurance);
 
     Statistics();

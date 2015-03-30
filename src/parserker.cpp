@@ -22,7 +22,7 @@ Statistics &Parserker::getStatistics()
     return statistics;
 }
 
-unsigned int Parserker::getIntelligence() const
+int Parserker::getIntelligence() const
 {
     return statistics.getIntelligence();
 }
@@ -30,17 +30,17 @@ void Parserker::setIntelligence(unsigned int intelligence)
 {
     statistics.setIntelligence(intelligence);
 }
-unsigned int Parserker::getStrength() const
+int Parserker::getStrength() const
 {
     return statistics.getStrength();
 }
 
-unsigned int Parserker::getCharisma() const
+int Parserker::getCharisma() const
 {
     return statistics.getCharisma();
 }
 
-unsigned int Parserker::getEndurance() const
+int Parserker::getEndurance() const
 {
     return statistics.getEndurance();
 }
@@ -72,7 +72,7 @@ double Parserker::getCurrentStuffMassWithNewWeapon(Weapon &newWeapon) {
     return getCurrentStuffMass() - currentWeapon.getMass() + newWeapon.getMass();
 }
 
-unsigned int Parserker::getStrengthWithNewWeapon(Weapon &newWeapon) {
+int Parserker::getStrengthWithNewWeapon(Weapon &newWeapon) {
     return getStrength() - currentWeapon.getStrengthBonus() + newWeapon.getStrengthBonus();
 }
 
@@ -113,10 +113,6 @@ void Parserker::putOnArmor(HeadArmor headArmor)
 
 void Parserker::changeStatistics(HeadArmor &newHeadArmor)
 {
-   /* auto newStrength = getStrengthWithNewWeapon(newWeapon);
-    auto newStuffMass = getCurrentStuffMassWithNewWeapon(newWeapon);
-    statistics.setStrength(newStrength);
-    currentStuffMass = newStuffMass;*/
     auto newDefence = getDefenceWithNewArmor (newHeadArmor);
     auto newStuffMass = getCurrentStuffMassWithNewArmor(newHeadArmor);
     statistics.setDefence(newDefence);
