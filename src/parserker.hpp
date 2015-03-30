@@ -19,9 +19,12 @@ public:
     double getCurrentStuffMass();
     bool isPossibleAddAnotherStuff(Weapon weapon);
     bool isPossibleAddAnotherStuff(HeadArmor headArmor);
+    bool isPossibleAddAnotherStuff(TorsoArmor torsoArmor);
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();
     void putOnArmor(HeadArmor headArmor);
+    void putOnArmor(TorsoArmor torsoArmor);
+
 
     int getStrength() const;
     int getDefence() const;
@@ -42,15 +45,15 @@ private:
 
     bool wasSkillAddedBefore(Skill &skill);
     void changeStatistics(Weapon &newWeapon);
-
     int getStrengthWithNewWeapon(Weapon &newWeapon);
-
     double getCurrentStuffMassWithNewWeapon(Weapon &newWeapon);
 
     void changeStatistics(HeadArmor &newHeadArmor);
-
     int getDefenceWithNewArmor(HeadArmor &armor);
-
     double getCurrentStuffMassWithNewArmor(HeadArmor &headArmor);
+
+    void changeStatistics(TorsoArmor &newTorsoArmor);
+    int getDefenceWithNewArmor(TorsoArmor &newTorsoArmor);
+    double getCurrentStuffMassWithNewArmor(TorsoArmor &newTorsoArmor);
 };
 

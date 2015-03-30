@@ -114,10 +114,27 @@ void Parserker::putOnArmor(HeadArmor headArmor)
     }
 }
 
+void Parserker::putOnArmor(TorsoArmor torsoArmor)
+{
+    if (isPossibleAddAnotherStuff(torsoArmor))
+    {
+        changeStatistics(torsoArmor);
+        armor.torsoArmor = torsoArmor;
+    }
+}
+
 void Parserker::changeStatistics(HeadArmor &newHeadArmor)
 {
     auto newDefence = getDefenceWithNewArmor(newHeadArmor);
     auto newStuffMass = getCurrentStuffMassWithNewArmor(newHeadArmor);
+    statistics.setDefence(newDefence);
+    currentStuffMass = newStuffMass;
+}
+
+void Parserker::changeStatistics(TorsoArmor &newTorsoArmor)
+{
+    auto newDefence = getDefenceWithNewArmor(newTorsoArmor);
+    auto newStuffMass = getCurrentStuffMassWithNewArmor(newTorsoArmor);
     statistics.setDefence(newDefence);
     currentStuffMass = newStuffMass;
 }
@@ -140,4 +157,16 @@ double Parserker::getCurrentStuffMassWithNewArmor(HeadArmor &headArmor)
 int Parserker::getDefence() const
 {
     return statistics.getDefence();
+}
+bool Parserker::isPossibleAddAnotherStuff(TorsoArmor torsoArmor)
+{
+    return (maxStuffMass >= currentStuffMass + torsoArmor.getMass());
+}
+int Parserker::getDefenceWithNewArmor(TorsoArmor &newTorsoArmor)
+{
+    return getDefence() - armor.torsoArmor.getDefenceBonus() + newTorsoArmor.getDefenceBonus();;
+}
+double Parserker::getCurrentStuffMassWithNewArmor(TorsoArmor &newTorsoArmor)
+{
+    return getCurrentStuffMass() - armor.torsoArmor.getMass() + newTorsoArmor.getMass();
 }
