@@ -54,7 +54,7 @@ void Parserker::setEndurance(unsigned int endurance)
 
 void Parserker::takeWeapon(Weapon weapon)
 {
-    if (isPossibleAddAnotherStuff(weapon))
+    if (isPossibleToTakeWeapon(weapon))
     {
         changeStatistics(weapon);
         currentWeapon = weapon;
@@ -90,9 +90,9 @@ Parserker::Parserker()
     maxStuffMass = 0;
 }
 
-bool Parserker::isPossibleAddAnotherStuff(Weapon weapon)
+bool Parserker::isPossibleToTakeWeapon(Weapon weapon)
 {
-    return (maxStuffMass >= currentStuffMass + weapon.getMass());
+    return (maxStuffMass >= (currentStuffMass - currentWeapon.getMass()) + weapon.getMass());
 }
 
 void Parserker::setMaxStuffMass(double maxMass)
@@ -107,7 +107,7 @@ double Parserker::getHowMuchCanLiftNow()
 
 void Parserker::putOnArmor(HeadArmor headArmor)
 {
-    if (isPossibleAddAnotherStuff(headArmor))
+    if (isPossibleToTakeHelmet(headArmor))
     {
         changeStatistics(headArmor);
         armor.headArmor = headArmor;
@@ -116,7 +116,7 @@ void Parserker::putOnArmor(HeadArmor headArmor)
 
 void Parserker::putOnArmor(TorsoArmor torsoArmor)
 {
-    if (isPossibleAddAnotherStuff(torsoArmor))
+    if (isPossibleToTakeTorsoArmor(torsoArmor))
     {
         changeStatistics(torsoArmor);
         armor.torsoArmor = torsoArmor;
@@ -139,9 +139,9 @@ void Parserker::changeStatistics(TorsoArmor &newTorsoArmor)
     currentStuffMass = newStuffMass;
 }
 
-bool Parserker::isPossibleAddAnotherStuff(HeadArmor headArmor)
+bool Parserker::isPossibleToTakeHelmet(HeadArmor headArmor)
 {
-    return (maxStuffMass >= currentStuffMass + headArmor.getMass());
+    return (maxStuffMass >= (currentStuffMass - armor.headArmor.getMass()) + headArmor.getMass());
 }
 
 int Parserker::getDefenceWithNewArmor(HeadArmor &headArmor)
@@ -158,9 +158,9 @@ int Parserker::getDefence() const
 {
     return statistics.getDefence();
 }
-bool Parserker::isPossibleAddAnotherStuff(TorsoArmor torsoArmor)
+bool Parserker::isPossibleToTakeTorsoArmor(TorsoArmor torsoArmor)
 {
-    return (maxStuffMass >= currentStuffMass + torsoArmor.getMass());
+    return (maxStuffMass >= (currentStuffMass - armor.torsoArmor.getMass()) + torsoArmor.getMass());
 }
 int Parserker::getDefenceWithNewArmor(TorsoArmor &newTorsoArmor)
 {

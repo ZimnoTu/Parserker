@@ -9,6 +9,7 @@ public:
     HeadArmor(int defence, double mass);
     double getMass();
 
+    std::string getName() {return name;}
     int getDefenceBonus();
 
 private:

@@ -17,14 +17,13 @@ public:
     Statistics &getStatistics();
     void takeWeapon(Weapon weapon);
     double getCurrentStuffMass();
-    bool isPossibleAddAnotherStuff(Weapon weapon);
-    bool isPossibleAddAnotherStuff(HeadArmor headArmor);
-    bool isPossibleAddAnotherStuff(TorsoArmor torsoArmor);
+    bool isPossibleToTakeWeapon(Weapon weapon);
+    bool isPossibleToTakeHelmet(HeadArmor headArmor);
+    bool isPossibleToTakeTorsoArmor(TorsoArmor torsoArmor);
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();
     void putOnArmor(HeadArmor headArmor);
     void putOnArmor(TorsoArmor torsoArmor);
-
 
     int getStrength() const;
     int getDefence() const;
