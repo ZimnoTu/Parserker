@@ -7,13 +7,14 @@
 #include "armor.hpp"
 
 class Skill;
+
 class Reading;
 
 class Parserker
 {
 public:
     void addSkill(Skill skill);
-    Statistics& getStatistics();
+    Statistics &getStatistics();
     void takeWeapon(Weapon weapon);
     double getCurrentStuffMass();
     bool isPossibleAddAnotherStuff(Weapon weapon);
@@ -23,26 +24,24 @@ public:
     void putOnArmor(HeadArmor headArmor);
 
     int getStrength() const;
-    int getDefence () const;
-    int getIntelligence() const ;
+    int getDefence() const;
+    int getIntelligence() const;
     void setIntelligence(unsigned int intelligence);
     int getCharisma() const;
-    int getEndurance() const ;
+    int getEndurance() const;
     void setEndurance(unsigned int endurance);
     Parserker();
 
 private:
-    std::set<Skill>skills;
+    std::set<Skill> skills;
     Statistics statistics;
     double currentStuffMass;
     double maxStuffMass;
     Weapon currentWeapon;
     Armor armor;
 
-
     bool wasSkillAddedBefore(Skill &skill);
     void changeStatistics(Weapon &newWeapon);
-
 
     int getStrengthWithNewWeapon(Weapon &newWeapon);
 

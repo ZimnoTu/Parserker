@@ -6,10 +6,12 @@ Weapon::Weapon(std::string name, int strBonus, double mass)
     Weapon::strengthBonus = strBonus;
     Weapon::mass = mass;
 }
+
 double Weapon::getMass()
 {
     return mass;
 }
+
 int Weapon::getStrengthBonus()
 {
     return strengthBonus;

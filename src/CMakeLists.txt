@@ -14,6 +14,8 @@ set(SOURCES
 	statistics.hpp
 	headArmor.cpp
 	headArmor.hpp
+	torsoArmor.cpp
+	torsoArmor.hpp
 )
 
 add_library(${PROJECT_NAME}-lib ${SOURCES})

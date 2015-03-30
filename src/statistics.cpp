@@ -26,7 +26,7 @@ int Statistics::getStrength() const
     return strength;
 }
 
-void Statistics::setStrength(unsigned int strength)
+void Statistics::setStrength(int strength)
 {
     Statistics::strength = strength;
 }
@@ -36,7 +36,7 @@ int Statistics::getIntelligence() const
     return intelligence;
 }
 
-void Statistics::setIntelligence(unsigned int intelligence)
+void Statistics::setIntelligence(int intelligence)
 {
     Statistics::intelligence = intelligence;
 }
@@ -45,7 +45,7 @@ int Statistics::getCharisma() const {
     return charisma;
 }
 
-void Statistics::setCharisma(unsigned int charisma) {
+void Statistics::setCharisma(int charisma) {
     Statistics::charisma = charisma;
 }
 
@@ -54,7 +54,7 @@ int Statistics::getWillpower() const
     return willpower;
 }
 
-void Statistics::setWillpower(unsigned int willpower)
+void Statistics::setWillpower(int willpower)
 {
     Statistics::willpower = willpower;
 }
@@ -84,7 +84,7 @@ int Statistics::getEndurance() const
     return endurance;
 }
 
-void Statistics::setEndurance(unsigned int endurance)
+void Statistics::setEndurance(int endurance)
 {
     Statistics::endurance = endurance;
 }

@@ -1,14 +1,14 @@
 #pragma once
+
 #include <string>
 
-class Weapon{
+class Weapon
+{
 public:
     Weapon(std::string name, int strBonus, double mass);
     Weapon();
     double getMass();
     int getStrengthBonus();
-
-
 
 private:
     double mass;
