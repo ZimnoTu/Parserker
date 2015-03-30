@@ -16,6 +16,8 @@ set(SOURCES
 	headArmor.hpp
 	torsoArmor.cpp
 	torsoArmor.hpp
+	shield.cpp
+	shield.hpp
 )
 
 add_library(${PROJECT_NAME}-lib ${SOURCES})
