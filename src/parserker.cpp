@@ -170,3 +170,7 @@ double Parserker::getCurrentStuffMassWithNewArmor(TorsoArmor &newTorsoArmor)
 {
     return getCurrentStuffMass() - armor.torsoArmor.getMass() + newTorsoArmor.getMass();
 }
+bool Parserker::isPossibleToTakeShield(Shield shield)
+{
+    return (maxStuffMass >= (currentStuffMass - armor.shield.getMass()) + shield.getMass());
+}

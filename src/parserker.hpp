@@ -20,6 +20,7 @@ public:
     bool isPossibleToTakeWeapon(Weapon weapon);
     bool isPossibleToTakeHelmet(HeadArmor headArmor);
     bool isPossibleToTakeTorsoArmor(TorsoArmor torsoArmor);
+    bool isPossibleToTakeShield(Shield shield);
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();
     void putOnArmor(HeadArmor headArmor);
