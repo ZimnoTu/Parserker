@@ -108,3 +108,13 @@ int Parserker::getDefence() const
 {
     return statistics.getDefence();
 }
+bool Parserker::isPossibleToTakeArmor(Armor armor)
+{
+    return (maxStuffMass >= (currentStuffMass - currentWeapon.getMass()) + armor.getMass());
+}
+void Parserker::putOnArmor(Armor armor)
+{
+    Parserker::armor = armor;
+    statistics.setDefence(armor.getDefenceBonus());
+    currentStuffMass = armor.getMass();
+}

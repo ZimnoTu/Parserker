@@ -8,8 +8,17 @@ public:
     bool isTorsoArmor;
     bool isShield;
 
-private:
+    double getMass();
+    int getDefenceBonus();
+
+protected:
     std::string name;
     int defenceBounus;
     double mass;
+};
+class HeadArmor : public Armor
+{
+public:
+    HeadArmor();
+    HeadArmor(int defence, double mass);
 };

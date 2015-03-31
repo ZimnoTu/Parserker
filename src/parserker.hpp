@@ -18,6 +18,8 @@ public:
     void takeWeapon(Weapon weapon);
     double getCurrentStuffMass();
     bool isPossibleToTakeWeapon(Weapon weapon);
+    bool isPossibleToTakeArmor(Armor armor);
+    void putOnArmor(Armor armor);
 
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();

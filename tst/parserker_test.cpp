@@ -95,14 +95,14 @@ TEST_F (ParserkerTest, weapon_howMuchCanLiftNow)
     EXPECT_EQ (10.0, parserker.getHowMuchCanLiftNow());
 }
 
-/*TEST_F(ParserkerTest, canPunOnArmor_Head)
+TEST_F(ParserkerTest, isPossibleToTakeArmor_Head)
 {
     HeadArmor helmet(1, 1.0);
     parserker.setMaxStuffMass(2.0);
     EXPECT_TRUE(parserker.isPossibleToTakeArmor(helmet));
-}*/
-/*
-TEST_F(ParserkerTest, canNotPunOnArmor_Head)
+}
+
+TEST_F(ParserkerTest, is_NOT_PossibleToTakeArmor_Head)
 {
     HeadArmor helmet(1, 3.0);
     parserker.setMaxStuffMass(2.0);
@@ -115,9 +115,10 @@ TEST_F (ParserkerTest, armor_putOnArmor_Head)
     parserker.setMaxStuffMass(10);
     parserker.putOnArmor(helmet);
     EXPECT_EQ(1.0, parserker.getCurrentStuffMass());
+    EXPECT_EQ(1, parserker.getDefence());
 }
 
-TEST_F (ParserkerTest, armor_putOnArmor_Head_NOT)
+/*TEST_F (ParserkerTest, armor_putOnArmor_Head_NOT)
 {
     HeadArmor helmet(1, 11.0);
     parserker.setMaxStuffMass(10);
