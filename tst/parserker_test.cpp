@@ -212,6 +212,15 @@ TEST_F (ParserkerTest, armor_Torso_2Shields)
 
 TEST_F(ParserkerTest, armorAndWeapon_summaryMass)
 {
-    parserker.setMaxStuffMass()
-    Shield shield(1, 5.0)
+    parserker.setMaxStuffMass(12.0);
+    Shield shield(1, 5.0);
+    HeadArmor helmet (1, 2.0);
+    TorsoArmor breastplate (2, 3.0);
+    Weapon stick("magic stick", 1, 2.0);
+    parserker.putOnArmor(shield);
+    parserker.putOnArmor(helmet);
+    parserker.putOnArmor(breastplate);
+    parserker.takeWeapon(stick);
+    EXPECT_EQ(4, parserker.getDefence());
+    EXPECT_EQ(12, parserker.getCurrentStuffMass());
 }
