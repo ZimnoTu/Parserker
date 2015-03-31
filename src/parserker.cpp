@@ -114,7 +114,10 @@ bool Parserker::isPossibleToTakeArmor(Armor armor)
 }
 void Parserker::putOnArmor(Armor armor)
 {
-    Parserker::armor = armor;
-    statistics.setDefence(armor.getDefenceBonus());
-    currentStuffMass = armor.getMass();
+    if(isPossibleToTakeArmor(armor))
+    {
+        Parserker::armor = armor;
+        statistics.setDefence(armor.getDefenceBonus());
+        currentStuffMass = armor.getMass();
+    }
 }

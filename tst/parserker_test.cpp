@@ -118,14 +118,14 @@ TEST_F (ParserkerTest, armor_putOnArmor_Head)
     EXPECT_EQ(1, parserker.getDefence());
 }
 
-/*TEST_F (ParserkerTest, armor_putOnArmor_Head_NOT)
+TEST_F (ParserkerTest, armor_putOnArmor_Head_NOT)
 {
     HeadArmor helmet(1, 11.0);
     parserker.setMaxStuffMass(10);
     parserker.putOnArmor(helmet);
     EXPECT_EQ(0.0, parserker.getCurrentStuffMass());
 }
-
+/*
 TEST_F (ParserkerTest, armor_Head_2Helmets)
 {
     HeadArmor helmet1(1, 8.0);
