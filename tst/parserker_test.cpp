@@ -181,3 +181,11 @@ TEST_F(ParserkerTest, canPunOnArmor_Shield)
     parserker.setMaxStuffMass(10.0);
     EXPECT_TRUE(parserker.isPossibleToTakeShield(shield1));
 }
+TEST_F (ParserkerTest, armor_putOnArmor_Shield)
+{
+    Shield shield1(2, 10.3);
+    parserker.setMaxStuffMass(11.0);
+    parserker.putOnArmor(shield1);
+    EXPECT_EQ(10.3, parserker.getCurrentStuffMass());
+    EXPECT_EQ(2, parserker.getDefence());
+}

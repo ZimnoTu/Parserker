@@ -25,6 +25,7 @@ public:
     double getHowMuchCanLiftNow();
     void putOnArmor(HeadArmor headArmor);
     void putOnArmor(TorsoArmor torsoArmor);
+    void putOnArmor(Shield shield);
 
     int getStrength() const;
     int getDefence() const;
@@ -55,5 +56,10 @@ private:
     void changeStatistics(TorsoArmor &newTorsoArmor);
     int getDefenceWithNewArmor(TorsoArmor &newTorsoArmor);
     double getCurrentStuffMassWithNewArmor(TorsoArmor &newTorsoArmor);
+
+    void changeStatistics(Shield &newShield);
+    int getDefenceWithNewArmor(Shield &newShield);
+    double getCurrentStuffMassWithNewArmor(Shield &newShield);
+
 };
 
