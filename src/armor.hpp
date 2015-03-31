@@ -22,13 +22,17 @@ protected:
 class HeadArmor : public Armor
 {
 public:
-    HeadArmor();
     HeadArmor(int defence, double mass);
 };
 
 class TorsoArmor : public Armor
 {
 public:
-    TorsoArmor();
     TorsoArmor(int defence, double mass);
+};
+
+class Shield : public Armor
+{
+public:
+    Shield(int defence, double mass);
 };

@@ -176,7 +176,7 @@ TEST_F (ParserkerTest, armor_Torso_2breastplate)
     parserker.putOnArmor(torsoArmor2);
     EXPECT_EQ(12.5, parserker.getCurrentStuffMass());
 }
-/*
+
 TEST_F(ParserkerTest, canPunOnArmor_Shield)
 {
     Shield shield1(2, 5.0);
@@ -210,7 +210,7 @@ TEST_F (ParserkerTest, armor_Torso_2Shields)
     parserker.putOnArmor(shield2);
     EXPECT_EQ(12.5, parserker.getCurrentStuffMass());
 }
-
+/*
 TEST_F(ParserkerTest, armorAndWeapon_summaryMass)
 {
     parserker.setMaxStuffMass(12.0);

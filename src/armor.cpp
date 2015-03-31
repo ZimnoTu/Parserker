@@ -1,23 +1,5 @@
 #include "armor.hpp"
 
-HeadArmor::HeadArmor(int defence, double mass)
-{
-    HeadArmor::defenceBounus = defence;
-    HeadArmor::mass = mass;
-    HeadArmor::name = "helmet";
-
-    isHelemet = true;
-    isTorsoArmor = false;
-    isShield = false;
-}
-HeadArmor::HeadArmor()
-{
-    HeadArmor::name = "helmet";
-
-    isHelemet = true;
-    isTorsoArmor = false;
-    isShield = false;
-}
 double Armor::getMass()
 {
     return mass;
@@ -31,6 +13,18 @@ Armor::Armor()
     Armor::mass = 0.0;
     Armor::defenceBounus = 0;
 }
+
+HeadArmor::HeadArmor(int defence, double mass)
+{
+    HeadArmor::defenceBounus = defence;
+    HeadArmor::mass = mass;
+    HeadArmor::name = "helmet";
+
+    isHelemet = true;
+    isTorsoArmor = false;
+    isShield = false;
+}
+
 TorsoArmor::TorsoArmor(int defence, double mass)
 {
     TorsoArmor::defenceBounus = defence;
@@ -40,10 +34,14 @@ TorsoArmor::TorsoArmor(int defence, double mass)
     isTorsoArmor = true;
     isShield = false;
 }
-TorsoArmor::TorsoArmor()
+
+Shield::Shield(int defence, double mass)
 {
-    TorsoArmor::name = "breastplate";
+    Shield::defenceBounus = defence;
+    Shield::mass = mass;
+    Shield::name = "shield";
     isHelemet = false;
-    isTorsoArmor = true;
-    isShield = false;
+    isTorsoArmor = false;
+    isShield = true;
 }
+
