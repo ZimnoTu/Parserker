@@ -175,12 +175,14 @@ TEST_F (ParserkerTest, armor_Torso_2breastplate)
     parserker.putOnArmor(torsoArmor2);
     EXPECT_EQ(12.5, parserker.getCurrentStuffMass());
 }
+
 TEST_F(ParserkerTest, canPunOnArmor_Shield)
 {
     Shield shield1(2, 5.0);
     parserker.setMaxStuffMass(10.0);
     EXPECT_TRUE(parserker.isPossibleToTakeShield(shield1));
 }
+
 TEST_F (ParserkerTest, armor_putOnArmor_Shield)
 {
     Shield shield1(2, 10.3);
@@ -188,4 +190,28 @@ TEST_F (ParserkerTest, armor_putOnArmor_Shield)
     parserker.putOnArmor(shield1);
     EXPECT_EQ(10.3, parserker.getCurrentStuffMass());
     EXPECT_EQ(2, parserker.getDefence());
+}
+
+TEST_F (ParserkerTest, armor_putOnArmor_Shield_NOT)
+{
+    Shield shield1(1, 30.0);
+    parserker.setMaxStuffMass(1);
+    parserker.putOnArmor(shield1);
+    EXPECT_EQ(0.0, parserker.getCurrentStuffMass());
+}
+
+TEST_F (ParserkerTest, armor_Torso_2Shields)
+{
+    Shield shield1(1, 20.0);
+    Shield shield2(1, 12.5);
+    parserker.setMaxStuffMass(25.0);
+    parserker.putOnArmor(shield1);
+    parserker.putOnArmor(shield2);
+    EXPECT_EQ(12.5, parserker.getCurrentStuffMass());
+}
+
+TEST_F(ParserkerTest, armorAndWeapon_summaryMass)
+{
+    parserker.setMaxStuffMass()
+    Shield shield(1, 5.0)
 }
