@@ -12,12 +12,6 @@ set(SOURCES
 	skill.hpp
 	statistics.cpp
 	statistics.hpp
-	headArmor.cpp
-	headArmor.hpp
-	torsoArmor.cpp
-	torsoArmor.hpp
-	shield.cpp
-	shield.hpp
 )
 
 add_library(${PROJECT_NAME}-lib ${SOURCES})

@@ -23,3 +23,9 @@ Weapon::Weapon()
     strengthBonus = 0;
     mass = 0.0;
 }
+Weapon::Weapon(int strBonus, double mass)
+{
+    Weapon::name = "defult";
+    Weapon::strengthBonus = strBonus;
+    Weapon::mass = mass;
+}

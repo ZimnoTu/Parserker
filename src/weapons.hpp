@@ -6,6 +6,7 @@ class Weapon
 {
 public:
     Weapon(std::string name, int strBonus, double mass);
+    Weapon(int strBonus, double mass);
     Weapon();
     double getMass();
     int getStrengthBonus();

@@ -1,16 +1,15 @@
 #pragma once
+#include <string>
 
-#include "headArmor.hpp"
-#include "torsoArmor.hpp"
-#include "shield.hpp"
-
-struct Armor
+class Armor
 {
-    HeadArmor headArmor;
-    TorsoArmor torsoArmor;
-    Shield shield;
+public:
+    bool isHelemet;
+    bool isTorsoArmor;
+    bool isShield;
 
-    void wearArmor(HeadArmor armor);
-    void wearArmor(TorsoArmor armor);
-    void wearArmor(Shield armor);
+private:
+    std::string name;
+    int defenceBounus;
+    double mass;
 };
