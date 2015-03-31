@@ -12,8 +12,6 @@ HeadArmor::HeadArmor(int defence, double mass)
 }
 HeadArmor::HeadArmor()
 {
-    HeadArmor::defenceBounus = 0;
-    HeadArmor::mass = 0.0;
     HeadArmor::name = "helmet";
 
     isHelemet = true;
@@ -27,4 +25,25 @@ double Armor::getMass()
 int Armor::getDefenceBonus()
 {
     return defenceBounus;
+}
+Armor::Armor()
+{
+    Armor::mass = 0.0;
+    Armor::defenceBounus = 0;
+}
+TorsoArmor::TorsoArmor(int defence, double mass)
+{
+    TorsoArmor::defenceBounus = defence;
+    TorsoArmor::mass = mass;
+    TorsoArmor::name = "breastplate";
+    isHelemet = false;
+    isTorsoArmor = true;
+    isShield = false;
+}
+TorsoArmor::TorsoArmor()
+{
+    TorsoArmor::name = "breastplate";
+    isHelemet = false;
+    isTorsoArmor = true;
+    isShield = false;
 }

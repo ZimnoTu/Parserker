@@ -18,11 +18,12 @@ public:
     void takeWeapon(Weapon weapon);
     double getCurrentStuffMass();
     bool isPossibleToTakeWeapon(Weapon weapon);
-    bool isPossibleToTakeArmor(Armor armor);
-    void putOnArmor(Armor armor);
+    bool isPossibleToTakeArmor(Armor newArmor);
+    void putOnArmor(Armor newArmor);
 
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();
+
 
     int getStrength() const;
     int getDefence() const;

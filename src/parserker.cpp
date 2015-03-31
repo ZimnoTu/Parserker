@@ -86,8 +86,8 @@ double Parserker::getCurrentStuffMass()
 
 Parserker::Parserker()
 {
-    currentStuffMass = 0;
-    maxStuffMass = 0;
+    currentStuffMass = 0.0;
+    maxStuffMass = 0.0;
 }
 
 bool Parserker::isPossibleToTakeWeapon(Weapon weapon)
@@ -108,16 +108,18 @@ int Parserker::getDefence() const
 {
     return statistics.getDefence();
 }
-bool Parserker::isPossibleToTakeArmor(Armor armor)
+bool Parserker::isPossibleToTakeArmor(Armor newArmor)
 {
-    return (maxStuffMass >= (currentStuffMass - currentWeapon.getMass()) + armor.getMass());
+    return (maxStuffMass >= (currentStuffMass - armor.getMass()) + newArmor.getMass());
 }
-void Parserker::putOnArmor(Armor armor)
+void Parserker::putOnArmor(Armor newArmor)
 {
-    if(isPossibleToTakeArmor(armor))
+    if(isPossibleToTakeArmor(newArmor))
     {
-        Parserker::armor = armor;
-        statistics.setDefence(armor.getDefenceBonus());
-        currentStuffMass = armor.getMass();
+        statistics.setDefence(newArmor.getDefenceBonus());
+        double newMass = currentStuffMass - armor.getMass() + newArmor.getMass();
+        currentStuffMass = newMass;
+        Parserker::armor = newArmor;
     }
 }
+
