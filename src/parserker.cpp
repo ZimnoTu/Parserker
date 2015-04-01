@@ -118,38 +118,33 @@ void Parserker::putOnArmor(Armor newArmor)
     if(isPossibleToTakeArmor(newArmor))
     {
         double newMass = currentStuffMass - getCurrentArmorElementMass(newArmor) + newArmor.getMass();
-      //  std::cout << newArmor.getName() <<"\t" << getCurrentArmorElementMass(newArmor) << std::endl;
         currentStuffMass = newMass;
         changeArmorElement(newArmor);
         statistics.setDefence(newArmor.getDefenceBonus());
-      //  std::cout<<"putOnArmor wewnatrz if teoretycznie dodano: " << armor.begin()->getName() << "\n";
     }
 }
 
 double Parserker::getCurrentArmorElementMass(Armor newArmor)
 {
+    std::vector<Armor>::iterator element;
     if(newArmor.isHelemet)
     {
-        auto element =std::find_if(armor.begin(), armor.end(),
+         element =std::find_if(armor.begin(), armor.end(),
                 [](Armor armorElement){return armorElement.isHelemet;});
-        if(element != armor.end())
-            return element->getMass();
     }
     if(newArmor.isShield)
     {
-        auto element =std::find_if(armor.begin(), armor.end(),
+        element =std::find_if(armor.begin(), armor.end(),
                 [](Armor armorElement){return armorElement.isShield;});
-        if(element != armor.end())
-            return element->getMass();
     }
     if(newArmor.isTorsoArmor)
     {
-        auto element =std::find_if(armor.begin(), armor.end(),
+        element =std::find_if(armor.begin(), armor.end(),
                 [](Armor armorElement){return armorElement.isTorsoArmor;});
-        if(element != armor.end())
-            return element->getMass();
     }
-    return 0;
+    if(element != armor.end())
+        return element->getMass();
+    return 0.0;
 }
 
 void Parserker::changeArmorElement(Armor newArmor)
@@ -162,5 +157,8 @@ void Parserker::changeArmorElement(Armor newArmor)
             armor.erase(element);
     }
     armor.push_back(newArmor);
-
+}
+unsigned long Parserker::getArmorVectorSize()
+{
+    return armor.size();
 }

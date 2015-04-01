@@ -7,7 +7,6 @@
 #include "armor.hpp"
 
 class Skill;
-
 class Reading;
 
 class Parserker
@@ -20,13 +19,10 @@ public:
     bool isPossibleToTakeWeapon(Weapon weapon);
     bool isPossibleToTakeArmor(Armor &newArmor);
     void putOnArmor(Armor newArmor);
-
+    double getCurrentArmorElementMass (Armor newArmor);
 
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();
-
-    double getCurrentArmorElementMass (Armor newArmor);
-
 
     int getStrength() const;
     int getDefence() const;
@@ -35,7 +31,8 @@ public:
     int getCharisma() const;
     int getEndurance() const;
     void setEndurance(unsigned int endurance);
-    unsigned long getArmorVectorSize() {return armor.size();}
+    unsigned long getArmorVectorSize();
+
     Parserker();
 
 private:
@@ -52,6 +49,5 @@ private:
     int getStrengthWithNewWeapon(Weapon &newWeapon);
     double getCurrentStuffMassWithNewWeapon(Weapon &newWeapon);
     void changeArmorElement(Armor newArmor);
-
 };
 
