@@ -18,11 +18,14 @@ public:
     void takeWeapon(Weapon weapon);
     double getCurrentStuffMass();
     bool isPossibleToTakeWeapon(Weapon weapon);
-    bool isPossibleToTakeArmor(Armor newArmor);
+    bool isPossibleToTakeArmor(Armor &newArmor);
     void putOnArmor(Armor newArmor);
+
 
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();
+
+    double getCurrentArmorElementMass (Armor newArmor);
 
 
     int getStrength() const;
@@ -32,6 +35,7 @@ public:
     int getCharisma() const;
     int getEndurance() const;
     void setEndurance(unsigned int endurance);
+    unsigned long getArmorVectorSize() {return armor.size();}
     Parserker();
 
 private:
@@ -40,13 +44,14 @@ private:
     double currentStuffMass;
     double maxStuffMass;
     Weapon currentWeapon;
-    Armor armor;
+    std::vector<Armor>armor;
 
     bool wasSkillAddedBefore(Skill &skill);
 
     void changeStatistics(Weapon &newWeapon);
     int getStrengthWithNewWeapon(Weapon &newWeapon);
     double getCurrentStuffMassWithNewWeapon(Weapon &newWeapon);
+    void changeArmorElement(Armor newArmor);
 
 };
 

@@ -108,18 +108,59 @@ int Parserker::getDefence() const
 {
     return statistics.getDefence();
 }
-bool Parserker::isPossibleToTakeArmor(Armor newArmor)
+bool Parserker::isPossibleToTakeArmor(Armor &newArmor)
 {
-    return (maxStuffMass >= (currentStuffMass - armor.getMass()) + newArmor.getMass());
+    return maxStuffMass >= (currentStuffMass - getCurrentArmorElementMass(newArmor)) + newArmor.getMass();
 }
+
 void Parserker::putOnArmor(Armor newArmor)
 {
     if(isPossibleToTakeArmor(newArmor))
     {
-        statistics.setDefence(newArmor.getDefenceBonus());
-        double newMass = currentStuffMass - armor.getMass() + newArmor.getMass();
+        double newMass = currentStuffMass - getCurrentArmorElementMass(newArmor) + newArmor.getMass();
+      //  std::cout << newArmor.getName() <<"\t" << getCurrentArmorElementMass(newArmor) << std::endl;
         currentStuffMass = newMass;
-        Parserker::armor = newArmor;
+        changeArmorElement(newArmor);
+        statistics.setDefence(newArmor.getDefenceBonus());
+      //  std::cout<<"putOnArmor wewnatrz if teoretycznie dodano: " << armor.begin()->getName() << "\n";
     }
 }
 
+double Parserker::getCurrentArmorElementMass(Armor newArmor)
+{
+    if(newArmor.isHelemet)
+    {
+        auto element =std::find_if(armor.begin(), armor.end(),
+                [](Armor armorElement){return armorElement.isHelemet;});
+        if(element != armor.end())
+            return element->getMass();
+    }
+    if(newArmor.isShield)
+    {
+        auto element =std::find_if(armor.begin(), armor.end(),
+                [](Armor armorElement){return armorElement.isShield;});
+        if(element != armor.end())
+            return element->getMass();
+    }
+    if(newArmor.isTorsoArmor)
+    {
+        auto element =std::find_if(armor.begin(), armor.end(),
+                [](Armor armorElement){return armorElement.isTorsoArmor;});
+        if(element != armor.end())
+            return element->getMass();
+    }
+    return 0;
+}
+
+void Parserker::changeArmorElement(Armor newArmor)
+{
+    if(newArmor.isHelemet)
+    {
+        auto element =std::find_if(armor.begin(), armor.end(),
+                [](Armor armorElement){return armorElement.isHelemet;});
+        if(element != armor.end())
+            armor.erase(element);
+    }
+    armor.push_back(newArmor);
+
+}

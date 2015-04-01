@@ -11,7 +11,10 @@ public:
 
     double getMass();
     int getDefenceBonus();
+    std::string getName() {return name;}
     Armor();
+
+
 
 protected:
     std::string name;
