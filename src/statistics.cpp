@@ -16,9 +16,9 @@ int Statistics::getDefence() const{
     return defence;
 }
 
-void Statistics::setDefence(int armor)
+void Statistics::setDefence(int defence)
 {
-    Statistics::defence = armor;
+    Statistics::defence += defence;
 }
 
 int Statistics::getStrength() const

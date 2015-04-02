@@ -108,14 +108,14 @@ int Parserker::getDefence() const
 {
     return statistics.getDefence();
 }
-bool Parserker::isPossibleToTakeArmor(Armor &newArmor)
+bool Parserker::isPossibleToTakeArmorBecauseOfMass(Armor &newArmor)
 {
     return maxStuffMass >= (currentStuffMass - getCurrentArmorElementMass(newArmor)) + newArmor.getMass();
 }
 
 void Parserker::putOnArmor(Armor newArmor)
 {
-    if(isPossibleToTakeArmor(newArmor))
+    if(isPossibleToTakeArmorBecauseOfMass(newArmor))
     {
         double newMass = currentStuffMass - getCurrentArmorElementMass(newArmor) + newArmor.getMass();
         currentStuffMass = newMass;
@@ -132,15 +132,15 @@ double Parserker::getCurrentArmorElementMass(Armor newArmor)
          element =std::find_if(armor.begin(), armor.end(),
                 [](Armor armorElement){return armorElement.isHelemet;});
     }
-    if(newArmor.isShield)
-    {
-        element =std::find_if(armor.begin(), armor.end(),
-                [](Armor armorElement){return armorElement.isShield;});
-    }
     if(newArmor.isTorsoArmor)
     {
         element =std::find_if(armor.begin(), armor.end(),
                 [](Armor armorElement){return armorElement.isTorsoArmor;});
+    }
+    if(newArmor.isShield)
+    {
+        element =std::find_if(armor.begin(), armor.end(),
+                [](Armor armorElement){return armorElement.isShield;});
     }
     if(element != armor.end())
         return element->getMass();
@@ -149,12 +149,27 @@ double Parserker::getCurrentArmorElementMass(Armor newArmor)
 
 void Parserker::changeArmorElement(Armor newArmor)
 {
+    std::vector<Armor>::iterator element;
     if(newArmor.isHelemet)
     {
-        auto element =std::find_if(armor.begin(), armor.end(),
+        element =std::find_if(armor.begin(), armor.end(),
                 [](Armor armorElement){return armorElement.isHelemet;});
-        if(element != armor.end())
-            armor.erase(element);
+    }
+    if(newArmor.isTorsoArmor)
+    {
+        element =std::find_if(armor.begin(), armor.end(),
+                [](Armor armorElement){return armorElement.isTorsoArmor;});
+    }
+    if(newArmor.isShield)
+    {
+        element =std::find_if(armor.begin(), armor.end(),
+                [](Armor armorElement){return armorElement.isShield;});
+    }
+
+    if(element != armor.end())
+    {
+        statistics.setDefence(-element->getDefenceBonus());
+        armor.erase(element);
     }
     armor.push_back(newArmor);
 }

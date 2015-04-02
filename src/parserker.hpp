@@ -17,7 +17,7 @@ public:
     void takeWeapon(Weapon weapon);
     double getCurrentStuffMass();
     bool isPossibleToTakeWeapon(Weapon weapon);
-    bool isPossibleToTakeArmor(Armor &newArmor);
+    bool isPossibleToTakeArmorBecauseOfMass(Armor &newArmor);
     void putOnArmor(Armor newArmor);
     double getCurrentArmorElementMass (Armor newArmor);
 
