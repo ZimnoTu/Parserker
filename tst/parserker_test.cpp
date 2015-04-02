@@ -227,7 +227,7 @@ TEST_F(ParserkerTest, addHelmet_and_Torso)
     EXPECT_EQ(3, parserker.getDefence());
     EXPECT_EQ(6.5, parserker.getCurrentStuffMass());
 }
-/*
+
 TEST_F(ParserkerTest, armorAndWeapon_summaryMass)
 {
     parserker.setMaxStuffMass(12.0);
@@ -242,4 +242,4 @@ TEST_F(ParserkerTest, armorAndWeapon_summaryMass)
     EXPECT_EQ(4, parserker.getDefence());
     EXPECT_EQ(12, parserker.getCurrentStuffMass());
     EXPECT_EQ(1, parserker.getStrength());
-}*/
+}

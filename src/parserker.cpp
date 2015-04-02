@@ -65,7 +65,7 @@ void Parserker::changeStatistics(Weapon &newWeapon)
 {
     auto newStrength = getStrengthWithNewWeapon(newWeapon);
     auto newStuffMass = getCurrentStuffMassWithNewWeapon(newWeapon);
-    statistics.setStrength(newStrength);
+    statistics.setStrength(-currentWeapon.getStrengthBonus() + newStrength);
     currentStuffMass = newStuffMass;
 }
 
@@ -126,22 +126,7 @@ void Parserker::putOnArmor(Armor newArmor)
 
 double Parserker::getCurrentArmorElementMass(Armor newArmor)
 {
-    std::vector<Armor>::iterator element;
-    if(newArmor.isHelemet)
-    {
-         element =std::find_if(armor.begin(), armor.end(),
-                [](Armor armorElement){return armorElement.isHelemet;});
-    }
-    if(newArmor.isTorsoArmor)
-    {
-        element =std::find_if(armor.begin(), armor.end(),
-                [](Armor armorElement){return armorElement.isTorsoArmor;});
-    }
-    if(newArmor.isShield)
-    {
-        element =std::find_if(armor.begin(), armor.end(),
-                [](Armor armorElement){return armorElement.isShield;});
-    }
+    auto element = findKindOfArmor(newArmor);
     if(element != armor.end())
         return element->getMass();
     return 0.0;
@@ -149,6 +134,20 @@ double Parserker::getCurrentArmorElementMass(Armor newArmor)
 
 void Parserker::changeArmorElement(Armor newArmor)
 {
+    auto element = findKindOfArmor(newArmor);
+    if(element != armor.end())
+    {
+        statistics.setDefence( - element->getDefenceBonus());
+        armor.erase(element);
+    }
+    armor.push_back(newArmor);
+}
+unsigned long Parserker::getArmorVectorSize()
+{
+    return armor.size();
+}
+std::vector<Armor>::iterator Parserker::findKindOfArmor(Armor &newArmor)
+{
     std::vector<Armor>::iterator element;
     if(newArmor.isHelemet)
     {
@@ -165,15 +164,5 @@ void Parserker::changeArmorElement(Armor newArmor)
         element =std::find_if(armor.begin(), armor.end(),
                 [](Armor armorElement){return armorElement.isShield;});
     }
-
-    if(element != armor.end())
-    {
-        statistics.setDefence(-element->getDefenceBonus());
-        armor.erase(element);
-    }
-    armor.push_back(newArmor);
-}
-unsigned long Parserker::getArmorVectorSize()
-{
-    return armor.size();
+    return element;
 }

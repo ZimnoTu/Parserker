@@ -2,12 +2,12 @@
 
 void Skill::applyBonuses(Statistics &statistics)
 {
-    statistics.setStrength(statistics.getStrength() + bonus.strength);
-    statistics.setDefence(statistics.getDefence() + bonus.armor);
-    statistics.setIntelligence(statistics.getIntelligence() + bonus.intelligence);
-    statistics.setCharisma(statistics.getCharisma() + bonus.charisma);
-    statistics.setWillpower(statistics.getWillpower() + bonus.willpower);
-    statistics.setEndurance(statistics.getEndurance() + bonus.endurance);
+    statistics.setStrength(bonus.strength);
+    statistics.setDefence(bonus.armor);
+    statistics.setIntelligence(bonus.intelligence);
+    statistics.setCharisma(bonus.charisma);
+    statistics.setWillpower(bonus.willpower);
+    statistics.setEndurance(bonus.endurance);
 }
 
 std::string Skill::getName() const {

@@ -28,7 +28,7 @@ int Statistics::getStrength() const
 
 void Statistics::setStrength(int strength)
 {
-    Statistics::strength = strength;
+    Statistics::strength += strength;
 }
 
 int Statistics::getIntelligence() const
@@ -38,7 +38,7 @@ int Statistics::getIntelligence() const
 
 void Statistics::setIntelligence(int intelligence)
 {
-    Statistics::intelligence = intelligence;
+    Statistics::intelligence += intelligence;
 }
 
 int Statistics::getCharisma() const {
@@ -46,7 +46,7 @@ int Statistics::getCharisma() const {
 }
 
 void Statistics::setCharisma(int charisma) {
-    Statistics::charisma = charisma;
+    Statistics::charisma += charisma;
 }
 
 int Statistics::getWillpower() const
@@ -56,7 +56,7 @@ int Statistics::getWillpower() const
 
 void Statistics::setWillpower(int willpower)
 {
-    Statistics::willpower = willpower;
+    Statistics::willpower += willpower;
 }
 
 unsigned int Statistics::getCurrentHP() const
@@ -66,7 +66,7 @@ unsigned int Statistics::getCurrentHP() const
 
 void Statistics::setCurrentHP(unsigned int hp)
 {
-    Statistics::hp = hp;
+    Statistics::hp += hp;
 }
 
 unsigned int Statistics::getMaxHP()
@@ -86,6 +86,6 @@ int Statistics::getEndurance() const
 
 void Statistics::setEndurance(int endurance)
 {
-    Statistics::endurance = endurance;
+    Statistics::endurance += endurance;
 }
 

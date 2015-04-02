@@ -49,5 +49,6 @@ private:
     int getStrengthWithNewWeapon(Weapon &newWeapon);
     double getCurrentStuffMassWithNewWeapon(Weapon &newWeapon);
     void changeArmorElement(Armor newArmor);
+    std::vector<Armor>::iterator findKindOfArmor(Armor &newArmor);
 };
 
