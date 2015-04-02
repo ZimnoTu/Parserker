@@ -26,6 +26,7 @@ public:
 
     int getStrength() const;
     int getDefence() const;
+    void setDefence(int defence);
     int getIntelligence() const;
     void setIntelligence(unsigned int intelligence);
     int getCharisma() const;

@@ -15,5 +15,4 @@ class Troll : public Enemy
 {
 public:
     Troll();
-
 };

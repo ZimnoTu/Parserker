@@ -178,3 +178,7 @@ unsigned int Parserker::getCurrentHP()
 {
     return statistics.getCurrentHP();
 }
+void Parserker::setDefence(int defence)
+{
+    statistics.setDefence(defence);
+}
