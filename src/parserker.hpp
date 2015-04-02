@@ -31,6 +31,9 @@ public:
     int getCharisma() const;
     int getEndurance() const;
     void setEndurance(unsigned int endurance);
+    void setMaxHP(unsigned int maxHP);
+    void setCurrentHP(int points);
+    unsigned int getCurrentHP();
     unsigned long getArmorVectorSize();
 
     Parserker();

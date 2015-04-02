@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
+#include <enemy.hpp>
 #include "parserker.hpp"
 
 using namespace testing;
@@ -242,4 +243,12 @@ TEST_F(ParserkerTest, armorAndWeapon_summaryMass)
     EXPECT_EQ(4, parserker.getDefence());
     EXPECT_EQ(12, parserker.getCurrentStuffMass());
     EXPECT_EQ(1, parserker.getStrength());
+}
+
+TEST_F(ParserkerTest, enemy_hits)
+{
+    Troll troll;
+    parserker.setCurrentHP(10);
+    troll.attacks(parserker);
+    EXPECT_EQ(9, parserker.getCurrentHP());
 }

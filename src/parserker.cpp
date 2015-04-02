@@ -166,3 +166,15 @@ std::vector<Armor>::iterator Parserker::findKindOfArmor(Armor &newArmor)
     }
     return element;
 }
+void Parserker::setMaxHP(unsigned int maxHP)
+{
+    statistics.setMaxHP(maxHP);
+}
+void Parserker::setCurrentHP(int points)
+{
+    statistics.setCurrentHP(points);
+}
+unsigned int Parserker::getCurrentHP()
+{
+    return statistics.getCurrentHP();
+}

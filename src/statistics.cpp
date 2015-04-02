@@ -9,7 +9,7 @@ Statistics::Statistics()
     willpower = 0;
     endurance = 0;
     maxHp = 0;
-    hp = 0;
+    currentHp = 0;
 }
 
 int Statistics::getDefence() const{
@@ -61,12 +61,12 @@ void Statistics::setWillpower(int willpower)
 
 unsigned int Statistics::getCurrentHP() const
 {
-    return hp;
+    return currentHp;
 }
 
-void Statistics::setCurrentHP(unsigned int hp)
+void Statistics::setCurrentHP(int hp)
 {
-    Statistics::hp += hp;
+    Statistics::currentHp += hp;
 }
 
 unsigned int Statistics::getMaxHP()

@@ -1,6 +1,4 @@
 #include <gtest/gtest.h>
-#include <gmock/gmock.h>
-#include "skill.hpp"
 
 using namespace testing;
 

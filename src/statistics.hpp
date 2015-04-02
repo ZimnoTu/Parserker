@@ -15,7 +15,7 @@ public:
     int getWillpower() const;
     void setWillpower(int charisma);
     unsigned int getCurrentHP() const;
-    void setCurrentHP(unsigned int hp);
+    void setCurrentHP(int hp);
     unsigned int getMaxHP();
     void setMaxHP(unsigned int hp);
     int getEndurance() const;
@@ -24,7 +24,7 @@ public:
     Statistics();
 
 private:
-    unsigned int hp;
+    unsigned int currentHp;
     unsigned int maxHp;
     int defence;
     int strength;
