@@ -269,3 +269,10 @@ TEST_F(ParserkerTest, enemy_hitsSoMuch)
     troll.attacks(parserker);
     EXPECT_EQ(0, parserker.getCurrentHP());
 }
+
+TEST_F(ParserkerTest, parsekrek_hits)
+{
+    Troll troll;
+    parserker.attacks(troll);
+    EXPECT_EQ(4, troll.getHP());
+}

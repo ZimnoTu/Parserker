@@ -5,9 +5,11 @@
 #include "statistics.hpp"
 #include "weapons.hpp"
 #include "armor.hpp"
+#include "enemy.hpp"
 
 class Skill;
 class Reading;
+class Enemy;
 
 class Parserker
 {
@@ -24,6 +26,7 @@ public:
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();
 
+    int attacks(Enemy &enemy);
     int getStrength() const;
     int getDefence() const;
     void setDefence(int defence);

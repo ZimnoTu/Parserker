@@ -182,3 +182,12 @@ void Parserker::setDefence(int defence)
 {
     statistics.setDefence(defence);
 }
+int Parserker::attacks(Enemy &enemy)
+{
+    int force = 1;
+    int strikeForce = statistics.getStrength() * force + 1;
+    enemy.setHP(-strikeForce);
+
+
+    return 0;
+}

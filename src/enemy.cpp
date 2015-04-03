@@ -4,6 +4,7 @@ Troll::Troll()
 {
     strength = 1;
     name = "Troll";
+    hp = 5;
 }
 void Enemy::attacks(Parserker &parserker)
 {
@@ -12,9 +13,17 @@ void Enemy::attacks(Parserker &parserker)
     int force = 1;
     int strikeForce = strength * force;
 
-    isPossibleToHit =  (luck - parserker.getDefence() >= 0 );
-    if(isPossibleToHit && (parserker.getCurrentHP() - strikeForce) >= 0)
+    isPossibleToHit = (luck - parserker.getDefence() >= 0);
+    if (isPossibleToHit && (parserker.getCurrentHP() - strikeForce) >= 0)
     {
         parserker.setCurrentHP(-strikeForce);
     }
+}
+int Troll::getHP()
+{
+    return hp;
+}
+void Enemy::setHP(int points)
+{
+    hp += points;
 }
