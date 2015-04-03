@@ -59,22 +59,23 @@ void Statistics::setWillpower(int willpower)
     Statistics::willpower += willpower;
 }
 
-unsigned int Statistics::getCurrentHP() const
+int Statistics::getCurrentHP() const
 {
     return currentHp;
 }
 
 void Statistics::setCurrentHP(int hp)
 {
+
     Statistics::currentHp += hp;
 }
 
-unsigned int Statistics::getMaxHP()
+int Statistics::getMaxHP()
 {
     return maxHp;
 }
 
-void Statistics::setMaxHP(unsigned int hp)
+void Statistics::setMaxHP(int hp)
 {
     maxHp = hp;
 }

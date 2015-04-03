@@ -174,7 +174,7 @@ void Parserker::setCurrentHP(int points)
 {
     statistics.setCurrentHP(points);
 }
-unsigned int Parserker::getCurrentHP()
+int Parserker::getCurrentHP()
 {
     return statistics.getCurrentHP();
 }
