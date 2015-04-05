@@ -174,7 +174,7 @@ void Parserker::setCurrentHP(int points)
 {
     statistics.setCurrentHP(points);
 }
-int Parserker::getCurrentHP()
+int Parserker::getCurrentHP() const
 {
     return statistics.getCurrentHP();
 }
@@ -216,4 +216,13 @@ bool Parserker::isSummaryOfStartStatisticksGood()
     int summary = getStrength() + getDefence() + getWillpower() + getCharisma() +
                 getIntelligence() + getEndurance();
     return maxPoints == summary;
+}
+void Parserker::healsHimself()
+{
+    setCurrentHP(getMaxHP() - getCurrentHP());
+}
+
+int Parserker::getMaxHP()
+{
+    return statistics.getMaxHP();
 }

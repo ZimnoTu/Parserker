@@ -304,3 +304,11 @@ TEST_F(ParserkerTest, parserker_hits_fail)
     parserker.attacks(troll);
     EXPECT_EQ(5, troll.getHP());
 }
+
+TEST_F(ParserkerTest, parserker_drinks_HP_potion)
+{
+    parserker.setMaxHP(10);
+    parserker.setCurrentHP(1);
+    parserker.healsHimself();
+    EXPECT_EQ(10, parserker.getCurrentHP());
+}

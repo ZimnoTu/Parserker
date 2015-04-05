@@ -23,6 +23,7 @@ public:
     void putOnArmor(Armor newArmor);
     double getCurrentArmorElementMass (Armor newArmor);
     bool isSummaryOfStartStatisticksGood();
+    void healsHimself();
 
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();
@@ -37,8 +38,9 @@ public:
     int getEndurance() const;
     void setEndurance(unsigned int endurance);
     void setMaxHP(unsigned int maxHP);
+    int getMaxHP();
     void setCurrentHP(int points);
-    int getCurrentHP();
+    int getCurrentHP() const;
     int getWillpower() const;
     void setWillpower(int willpower);
     void setStrength(int strength);
