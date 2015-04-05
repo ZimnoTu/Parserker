@@ -31,7 +31,16 @@ TEST_F(ParserkerTest, good_summary_of_start_statisticks)
     parserker.setIntelligence(2);
     EXPECT_TRUE(parserker.isSummaryOfStartStatisticksGood());
 }
-
+TEST_F(ParserkerTest, summary_of_start_statisticks_fail)
+{
+    parserker.setStrength(3);
+    parserker.setDefence(3);
+    parserker.setWillpower(2);
+    parserker.setEndurance(1);
+    parserker.setCharisma(1);
+    parserker.setIntelligence(3);
+    EXPECT_FALSE(parserker.isSummaryOfStartStatisticksGood());
+}
 TEST_F (ParserkerTest, Add_the_skill)
 {
     Reading reading;

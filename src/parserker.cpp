@@ -212,5 +212,8 @@ void Parserker::setCharisma(int charisma)
 }
 bool Parserker::isSummaryOfStartStatisticksGood()
 {
-    return true;
+    int maxPoints = 12;
+    int summary = getStrength() + getDefence() + getWillpower() + getCharisma() +
+                getIntelligence() + getEndurance();
+    return maxPoints == summary;
 }
