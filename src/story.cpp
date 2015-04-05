@@ -8,51 +8,136 @@ Story::Story()
 void Story::StartOfGame()
 {
     introTekst();
-    int strength, defence, charisma, intelligence, endurance, willpower;
-    std::cout << "Sila: ";
-    std::cin >> strength;
-    parserker.setStrength(strength);
-    displayHowManyPointsAreAvaliable();
-    if(parserker.howManyPointsAreAvaliable() > 0)
+    setStartStatistics();
+    displayAllStatistics();
+}
+void Story::setStartStatistics()
+{
+    setStartStrength();
+    setStartDefence();
+    setStartCharisma();
+    setStartIntelligence();
+    setStartEndurance();
+    setStartWillpower();
+}
+void Story::setStartWillpower()
+{
+    if (parserker.howManyPointsAreAvaliable() > 0)
     {
-        std::cout << "Obrona: ";
-        std::cin >> defence;
-        parserker.setDefence(defence);
-        displayHowManyPointsAreAvaliable();
+        int parameter;
+        std::cout << "Sila woli: ";
+        std::cin >> parameter;
+        if(parameter <= parserker.howManyPointsAreAvaliable())
+        {
+            parserker.setWillpower(parameter);
+            displayHowManyPointsAreAvaliable();
+        }
+        else
+        {
+            std::cout << "Blad wprowadzania\n";
+            setStartWillpower();
+        }
     }
-    if(parserker.howManyPointsAreAvaliable() > 0)
+}
+void Story::setStartEndurance()
+{
+    if (parserker.howManyPointsAreAvaliable() > 0)
     {
-        std::cout << "Charyzma: ";
-        std::cin >> charisma;
-        parserker.setCharisma(charisma);
-        displayHowManyPointsAreAvaliable();
+        int parameter;
+        std::cout << "Wytrzymalosc: ";
+        std::cin >> parameter;
+        if (parameter <= parserker.howManyPointsAreAvaliable())
+        {
+            parserker.setEndurance(parameter);
+            displayHowManyPointsAreAvaliable();
+        }
+        else
+        {
+            std::cout << "Blad wprowadzania\n";
+            setStartEndurance();
+        }
     }
-    if(parserker.howManyPointsAreAvaliable() > 0)
+}
+void Story::setStartIntelligence()
+{
+    int parameter;
+    if (parserker.howManyPointsAreAvaliable() > 0)
     {
         std::cout << "Inteligencja: ";
-        std::cin >> intelligence;
-        parserker.setIntelligence(intelligence);
-        displayHowManyPointsAreAvaliable();
+        std::cin >> parameter;
+        if (parameter <= parserker.howManyPointsAreAvaliable())
+        {
+            parserker.setIntelligence(parameter);
+            displayHowManyPointsAreAvaliable();
+        }
+        else
+        {
+            std::cout << "Blad wprowadzania\n";
+            setStartIntelligence();
+        }
     }
-    if(parserker.howManyPointsAreAvaliable() > 0)
+}
+void Story::setStartCharisma()
+{
+    if (parserker.howManyPointsAreAvaliable() > 0)
     {
-        std::cout << "Wytrzymalosc: ";
-        std::cin >> endurance;
-        parserker.setEndurance(endurance);
-        displayHowManyPointsAreAvaliable();
+        int parameter;
+        std::cout << "Charyzma: ";
+        std::cin >> parameter;
+        if (parameter <= parserker.howManyPointsAreAvaliable())
+        {
+            parserker.setCharisma(parameter);
+            displayHowManyPointsAreAvaliable();
+        }
+        else
+        {
+            std::cout << "Blad wprowadzania\n";
+            setStartCharisma();
+        }
     }
-    if(parserker.howManyPointsAreAvaliable() > 0)
+}
+void Story::setStartDefence()
+{
+    if (parserker.howManyPointsAreAvaliable() > 0)
     {
-        std::cout << "Sila woli: ";
-        std::cin >> willpower;
-        parserker.setWillpower(willpower);
-        displayHowManyPointsAreAvaliable();
+        int parameter;
+        std::cout << "Obrona: ";
+        std::cin >> parameter;
+        if (parameter <= parserker.howManyPointsAreAvaliable())
+        {
+            parserker.setDefence(parameter);
+            displayHowManyPointsAreAvaliable();
+        }
+        else
+        {
+            std::cout << "Blad wprowadzania\n";
+            setStartDefence();
+        }
+    }
+}
+void Story::setStartStrength()
+{
+    if (parserker.howManyPointsAreAvaliable() > 0)
+    {
+        int parameter;
+        std::cout << "Sila: ";
+        std::cin >> parameter;
+        if (parameter <= parserker.howManyPointsAreAvaliable())
+        {
+            parserker.setStrength(parameter);
+            displayHowManyPointsAreAvaliable();
+        }
+        else
+        {
+            std::cout << "Blad wprowadzania\n";
+            setStartStrength();
+        }
     }
 }
 void Story::introTekst()
 {
     std::cout << "Witaj mlody Parserkerze!\n Wiec postanowiles podjac wyzwanie i stwic ";
-    std::cout <<"czolo przeciwnosciom losu i zmierzyc sie z odwiecznym wrogiem, ktory ";
+    std::cout << "czolo przeciwnosciom losu i zmierzyc sie z odwiecznym wrogiem, ktory ";
     std::cout << "od dawna dreczy spokojna spolecznosc. \n";
     std::cout << "Na szczescie laskawe bostwo " << god << " dalo ci mozliwosci ";
     std::cout << "jakch nie ma zwykly smiertelnik.\nPrzyszla pora na pierwszy wybor. ";
@@ -70,13 +155,23 @@ void Story::introTekst()
 void Story::displayHowManyPointsAreAvaliable()
 {
     int points = parserker.howManyPointsAreAvaliable();
-    if(points > 0)
+    if (points > 0)
     {
         std::cout << "Do rozdysponowania pozostało jeszcze: " << points;
         std::cout << " punktow.\n";
     }
-    if(points == 0)
+    if (points == 0)
     {
         std::cout << "Wydales wszystkie punkty\n";
     }
+}
+void Story::displayAllStatistics()
+{
+    std::cout << "\t\tTwoje statystyki: \n";
+    std::cout << "Sila: \t\t\t" << parserker.getStrength() << "\n";
+    std::cout << "Obrona: \t\t" << parserker.getDefence() << "\n";
+    std::cout << "Charyzma: \t\t" << parserker.getCharisma() << "\n";
+    std::cout << "Inteligencja: \t" << parserker.getIntelligence() << "\n";
+    std::cout << "Wytrzymalosc: \t" << parserker.getEndurance() << "\n";
+    std::cout << "Sila woli: \t\t" << parserker.getWillpower() << "\n";
 }

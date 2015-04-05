@@ -15,4 +15,12 @@ private:
     void introTekst();
 
     void displayHowManyPointsAreAvaliable();
+    void displayAllStatistics();
+    void setStartStatistics();
+    void setStartStrength();
+    void setStartDefence();
+    void setStartCharisma();
+    void setStartIntelligence();
+    void setStartEndurance();
+    void setStartWillpower();
 };
