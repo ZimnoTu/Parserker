@@ -202,3 +202,15 @@ void Parserker::setWillpower(int willpower)
 {
     statistics.setWillpower(willpower);
 }
+void Parserker::setStrength(int strength)
+{
+    statistics.setStrength(strength);
+}
+void Parserker::setCharisma(int charisma)
+{
+    statistics.setCharisma(charisma);
+}
+bool Parserker::isSummaryOfStartStatisticksGood()
+{
+    return true;
+}

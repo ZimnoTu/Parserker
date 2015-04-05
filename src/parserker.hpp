@@ -22,6 +22,7 @@ public:
     bool isPossibleToTakeArmorBecauseOfMass(Armor &newArmor);
     void putOnArmor(Armor newArmor);
     double getCurrentArmorElementMass (Armor newArmor);
+    bool isSummaryOfStartStatisticksGood();
 
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();
@@ -40,6 +41,8 @@ public:
     int getCurrentHP();
     int getWillpower() const;
     void setWillpower(int willpower);
+    void setStrength(int strength);
+    void setCharisma(int charisma);
     unsigned long getArmorVectorSize();
 
     Parserker();

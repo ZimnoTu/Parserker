@@ -14,6 +14,8 @@ set(SOURCES
 	statistics.hpp
 	enemy.cpp
 	enemy.hpp
+	story.cpp
+	story.hpp
 )
 
 add_library(${PROJECT_NAME}-lib ${SOURCES})

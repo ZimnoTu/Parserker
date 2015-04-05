@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include <enemy.hpp>
-#include "parserker.hpp"
 
 using namespace testing;
 
@@ -20,6 +19,17 @@ TEST_F (ParserkerTest, setting_intelligence)
 {
     parserker.setIntelligence(2);
     EXPECT_EQ (2, parserker.getIntelligence());
+}
+
+TEST_F(ParserkerTest, good_summary_of_start_statisticks)
+{
+    parserker.setStrength(3);
+    parserker.setDefence(3);
+    parserker.setWillpower(2);
+    parserker.setEndurance(1);
+    parserker.setCharisma(1);
+    parserker.setIntelligence(2);
+    EXPECT_TRUE(parserker.isSummaryOfStartStatisticksGood());
 }
 
 TEST_F (ParserkerTest, Add_the_skill)
@@ -136,7 +146,7 @@ TEST_F (ParserkerTest, armor_Head_2Helmets)
     parserker.putOnArmor(helmet2);
     EXPECT_EQ(9.5, parserker.getCurrentStuffMass());
     EXPECT_EQ(13, parserker.getDefence());
-    EXPECT_EQ(1,parserker.getArmorVectorSize());
+    EXPECT_EQ(1, parserker.getArmorVectorSize());
 }
 
 TEST_F(ParserkerTest, canPunOnArmor_Torso)
@@ -179,7 +189,7 @@ TEST_F (ParserkerTest, armor_Torso_2breastplate)
     parserker.putOnArmor(torsoArmor2);
     EXPECT_EQ(12.5, parserker.getCurrentStuffMass());
     EXPECT_EQ(4, parserker.getDefence());
-    EXPECT_EQ(1,parserker.getArmorVectorSize());
+    EXPECT_EQ(1, parserker.getArmorVectorSize());
 }
 
 TEST_F(ParserkerTest, canPunOnArmor_Shield)
@@ -215,7 +225,7 @@ TEST_F (ParserkerTest, armor_Torso_2Shields)
     parserker.putOnArmor(shield2);
     EXPECT_EQ(12.5, parserker.getCurrentStuffMass());
     EXPECT_EQ(7, parserker.getDefence());
-    EXPECT_EQ(1,parserker.getArmorVectorSize());
+    EXPECT_EQ(1, parserker.getArmorVectorSize());
 }
 
 TEST_F(ParserkerTest, addHelmet_and_Torso)
@@ -233,8 +243,8 @@ TEST_F(ParserkerTest, armorAndWeapon_summaryMass)
 {
     parserker.setMaxStuffMass(12.0);
     Shield shield(1, 5.0);
-    HeadArmor helmet (1, 2.0);
-    TorsoArmor breastplate (2, 3.0);
+    HeadArmor helmet(1, 2.0);
+    TorsoArmor breastplate(2, 3.0);
     Weapon stick(1, 2.0);
     parserker.putOnArmor(shield);
     parserker.putOnArmor(helmet);
@@ -261,6 +271,7 @@ TEST_F(ParserkerTest, enemy_hits_fail)
     troll.attacks(parserker);
     EXPECT_EQ(10, parserker.getCurrentHP());
 }
+
 TEST_F(ParserkerTest, enemy_hitsSoMuch)
 {
     Troll troll;
