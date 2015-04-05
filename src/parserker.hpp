@@ -38,6 +38,8 @@ public:
     void setMaxHP(unsigned int maxHP);
     void setCurrentHP(int points);
     int getCurrentHP();
+    int getWillpower() const;
+    void setWillpower(int willpower);
     unsigned long getArmorVectorSize();
 
     Parserker();

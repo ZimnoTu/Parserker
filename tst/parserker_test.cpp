@@ -273,6 +273,14 @@ TEST_F(ParserkerTest, enemy_hitsSoMuch)
 TEST_F(ParserkerTest, parsekrek_hits)
 {
     Troll troll;
+    parserker.setWillpower(2);
     parserker.attacks(troll);
     EXPECT_EQ(4, troll.getHP());
+}
+
+TEST_F(ParserkerTest, parserker_hits_fail)
+{
+    Troll troll;
+    parserker.attacks(troll);
+    EXPECT_EQ(5, troll.getHP());
 }

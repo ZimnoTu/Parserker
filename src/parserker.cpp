@@ -185,9 +185,20 @@ void Parserker::setDefence(int defence)
 int Parserker::attacks(Enemy &enemy)
 {
     int force = 1;
+    int luck = 1;
     int strikeForce = statistics.getStrength() * force + 1;
-    enemy.setHP(-strikeForce);
-
+    if((getWillpower()*0.5) + luck - enemy.getDefence()  >= 0)
+    {
+        enemy.setHP(-strikeForce);
+    }
 
     return 0;
+}
+int Parserker::getWillpower() const
+{
+    return statistics.getWillpower();
+}
+void Parserker::setWillpower(int willpower)
+{
+    statistics.setWillpower(willpower);
 }
