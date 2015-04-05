@@ -12,7 +12,8 @@ Statistics::Statistics()
     currentHp = 0;
 }
 
-int Statistics::getDefence() const{
+int Statistics::getDefence() const
+{
     return defence;
 }
 
@@ -41,11 +42,13 @@ void Statistics::setIntelligence(int intelligence)
     Statistics::intelligence += intelligence;
 }
 
-int Statistics::getCharisma() const {
+int Statistics::getCharisma() const
+{
     return charisma;
 }
 
-void Statistics::setCharisma(int charisma) {
+void Statistics::setCharisma(int charisma)
+{
     Statistics::charisma += charisma;
 }
 

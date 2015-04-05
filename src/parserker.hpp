@@ -22,11 +22,11 @@ public:
     bool isPossibleToTakeArmorBecauseOfMass(Armor &newArmor);
     void putOnArmor(Armor newArmor);
     double getCurrentArmorElementMass (Armor newArmor);
-    bool isSummaryOfStartStatisticksGood();
     void healsHimself();
 
     void setMaxStuffMass(double maxMass);
     double getHowMuchCanLiftNow();
+    int howManyPointsAreAvaliable();
 
     int attacks(Enemy &enemy);
     int getStrength() const;

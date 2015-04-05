@@ -21,25 +21,10 @@ TEST_F (ParserkerTest, setting_intelligence)
     EXPECT_EQ (2, parserker.getIntelligence());
 }
 
-TEST_F(ParserkerTest, good_summary_of_start_statisticks)
+TEST_F (ParserkerTest, displayHowManyStartPointAreAvaliable_test)
 {
     parserker.setStrength(3);
-    parserker.setDefence(3);
-    parserker.setWillpower(2);
-    parserker.setEndurance(1);
-    parserker.setCharisma(1);
-    parserker.setIntelligence(2);
-    EXPECT_TRUE(parserker.isSummaryOfStartStatisticksGood());
-}
-TEST_F(ParserkerTest, summary_of_start_statisticks_fail)
-{
-    parserker.setStrength(3);
-    parserker.setDefence(3);
-    parserker.setWillpower(2);
-    parserker.setEndurance(1);
-    parserker.setCharisma(1);
-    parserker.setIntelligence(3);
-    EXPECT_FALSE(parserker.isSummaryOfStartStatisticksGood());
+    EXPECT_EQ(9, parserker.howManyPointsAreAvaliable());
 }
 TEST_F (ParserkerTest, Add_the_skill)
 {

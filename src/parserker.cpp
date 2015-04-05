@@ -210,13 +210,7 @@ void Parserker::setCharisma(int charisma)
 {
     statistics.setCharisma(charisma);
 }
-bool Parserker::isSummaryOfStartStatisticksGood()
-{
-    int maxPoints = 12;
-    int summary = getStrength() + getDefence() + getWillpower() + getCharisma() +
-                getIntelligence() + getEndurance();
-    return maxPoints == summary;
-}
+
 void Parserker::healsHimself()
 {
     setCurrentHP(getMaxHP() - getCurrentHP());
@@ -225,4 +219,11 @@ void Parserker::healsHimself()
 int Parserker::getMaxHP()
 {
     return statistics.getMaxHP();
+}
+int Parserker::howManyPointsAreAvaliable()
+{
+    int maxPoints = 12;
+    int summary = getStrength() + getDefence() + getWillpower() + getCharisma() +
+            getIntelligence() + getEndurance();
+    return maxPoints - summary;
 }
