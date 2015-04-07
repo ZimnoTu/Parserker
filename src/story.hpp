@@ -11,8 +11,9 @@ public:
     void StartOfGame();
 
 private:
-    std::string god = "NAZWA BOGA";
+    std::string god = "Ojciec Rydzyk";
     void introTekst();
+    void waitForDecision();
 
     void displayHowManyPointsAreAvaliable();
     void displayAllStatistics();
@@ -23,4 +24,6 @@ private:
     void setStartIntelligence();
     void setStartEndurance();
     void setStartWillpower();
+    int drawNumber();
+    void setRandomStatistics();
 };

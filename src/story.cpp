@@ -8,7 +8,7 @@ Story::Story()
 void Story::StartOfGame()
 {
     introTekst();
-    setStartStatistics();
+    waitForDecision();
     displayAllStatistics();
 }
 void Story::setStartStatistics()
@@ -27,7 +27,7 @@ void Story::setStartWillpower()
         int parameter;
         std::cout << "Sila woli: ";
         std::cin >> parameter;
-        if(parameter <= parserker.howManyPointsAreAvaliable())
+        if (parameter <= parserker.howManyPointsAreAvaliable())
         {
             parserker.setWillpower(parameter);
             displayHowManyPointsAreAvaliable();
@@ -150,7 +150,7 @@ void Story::introTekst()
     std::cout << "\n\twytrzymalosc - czyli ile jestes w stanie na sobie uniesc";
     std::cout << "\n\tsila woli - czyli jak duzo pasji wkladasz w atak i czy potrafisz ";
     std::cout << "oprzec sie pokusom";
-    std::cout << "\n\t\tWYBIERAJ!\n";
+    std::cout << "\nMozesz decydowac sam lub pozwolic aby " << god << " sam zadecydowal";
 }
 void Story::displayHowManyPointsAreAvaliable()
 {
@@ -174,4 +174,42 @@ void Story::displayAllStatistics()
     std::cout << "Inteligencja: \t" << parserker.getIntelligence() << "\n";
     std::cout << "Wytrzymalosc: \t" << parserker.getEndurance() << "\n";
     std::cout << "Sila woli: \t\t" << parserker.getWillpower() << "\n";
+}
+void Story::waitForDecision()
+{
+    int decision;
+    std::cout << "\n\nWcisnij \"1\" aby wybrac samodzielnie, wcisnij \"2\" aby " << god << " wybral za ciebie\n";
+    std::cin >> decision;
+    if(decision == 1)
+        setStartStatistics();
+    else if(decision == 2)
+    {
+        std::cout << god << " uwaza, ze dobrze postepujesz!\n";
+        setRandomStatistics();
+    }
+    else
+    {
+        std::cout << "Jesteś na tyle nieodpowiedzialny, że " << god << " sam wybral za ciebie";
+        setRandomStatistics();
+    }
+}
+void Story::setRandomStatistics()
+{
+    int strength, defence, charisma, intelligence, endurence, willpower;
+    strength = drawNumber();
+    parserker.setStrength(strength);
+    defence = drawNumber();
+    parserker.setDefence(defence);
+    charisma = drawNumber();
+    parserker.setCharisma(charisma);
+    intelligence = drawNumber();
+    parserker.setIntelligence(intelligence);
+    endurence = drawNumber();
+    parserker.setEndurance(endurence);
+    willpower = parserker.howManyPointsAreAvaliable();
+    parserker.setWillpower(willpower);
+}
+int Story::drawNumber()
+{
+    return rand()%(parserker.howManyPointsAreAvaliable()/2)+1;
 }
