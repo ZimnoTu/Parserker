@@ -29,7 +29,7 @@ int Statistics::getStrength() const
 
 void Statistics::setStrength(int strength)
 {
-    Statistics::strength += strength;
+    Statistics::strength = strength;
 }
 
 int Statistics::getIntelligence() const

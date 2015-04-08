@@ -27,7 +27,7 @@ int Parserker::getIntelligence() const
     return statistics.getIntelligence();
 }
 
-void Parserker::setIntelligence(unsigned int intelligence)
+void Parserker::setIntelligence(int intelligence)
 {
     statistics.setIntelligence(intelligence);
 }
@@ -47,7 +47,7 @@ int Parserker::getEndurance() const
     return statistics.getEndurance();
 }
 
-void Parserker::setEndurance(unsigned int endurance)
+void Parserker::setEndurance(int endurance)
 {
     statistics.setEndurance(endurance);
 }
@@ -65,7 +65,7 @@ void Parserker::changeStatistics(Weapon &newWeapon)
 {
     auto newStrength = getStrengthWithNewWeapon(newWeapon);
     auto newStuffMass = getCurrentStuffMassWithNewWeapon(newWeapon);
-    statistics.setStrength(-currentWeapon.getStrengthBonus() + newStrength);
+    statistics.setStrength(newStrength);
     currentStuffMass = newStuffMass;
 }
 

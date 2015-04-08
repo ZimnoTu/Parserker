@@ -3,6 +3,7 @@ int main()
 {
     srand((unsigned int) time(NULL));
     Story story;
-    story.StartOfGame();
+    story.startOfGame();
+    story.quest1();
     return 0;
 }

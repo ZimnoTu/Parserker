@@ -54,19 +54,22 @@ TEST_F (ParserkerTest, Add_2TheSameSkill)
 TEST_F (ParserkerTest, weapon_ChangesStrength)
 {
     Weapon stick("stick", 1, 1.0);
+    parserker.setStrength(10);
     parserker.setMaxStuffMass(10);
     parserker.takeWeapon(stick);
-    EXPECT_EQ (1, parserker.getStrength());
+    EXPECT_EQ (11, parserker.getStrength());
 }
 
 TEST_F (ParserkerTest, 2_Weapons)
 {
     Weapon stick("stick", 1, 5.0);
     Weapon stick2("bigger stick", 2, 7.3);
+    parserker.setStrength(5);
     parserker.setMaxStuffMass(10);
     parserker.takeWeapon(stick);
     parserker.takeWeapon(stick2);
-    EXPECT_EQ (2, parserker.getStrength());
+    std::cout << parserker.getCurrentStuffMass() << std::endl;
+    EXPECT_EQ (7, parserker.getStrength());
 }
 
 TEST_F (ParserkerTest, weapon_ChangesCurrentStuffMass)
@@ -117,10 +120,11 @@ TEST_F(ParserkerTest, is_NOT_PossibleToTakeArmor_Head)
 TEST_F (ParserkerTest, armor_putOnArmor_Head)
 {
     HeadArmor helmet(1, 1.0);
+    parserker.setDefence(10);
     parserker.setMaxStuffMass(10);
     parserker.putOnArmor(helmet);
     EXPECT_EQ(1.0, parserker.getCurrentStuffMass());
-    EXPECT_EQ(1, parserker.getDefence());
+    EXPECT_EQ(11, parserker.getDefence());
 }
 
 TEST_F (ParserkerTest, armor_putOnArmor_Head_NOT)
@@ -135,11 +139,12 @@ TEST_F (ParserkerTest, armor_Head_2Helmets)
 {
     HeadArmor helmet1(1, 8.0);
     HeadArmor helmet2(13, 9.5);
+    parserker.setDefence(10);
     parserker.setMaxStuffMass(15);
     parserker.putOnArmor(helmet1);
     parserker.putOnArmor(helmet2);
     EXPECT_EQ(9.5, parserker.getCurrentStuffMass());
-    EXPECT_EQ(13, parserker.getDefence());
+    EXPECT_EQ(23, parserker.getDefence());
     EXPECT_EQ(1, parserker.getArmorVectorSize());
 }
 

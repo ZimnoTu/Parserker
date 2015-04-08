@@ -8,7 +8,8 @@ public:
 
     Story();
 
-    void StartOfGame();
+    void startOfGame();
+    void quest1();
 
 private:
     std::string god = "Ojciec Rydzyk";
@@ -26,4 +27,8 @@ private:
     void setStartWillpower();
     int drawNumber();
     void setRandomStatistics();
+    void quest1_txt1();
+    void quest1_lookingForStick();
+    void quest1_pickingStick();
+    void quest1_pickingStickLoop(Weapon &stick);
 };

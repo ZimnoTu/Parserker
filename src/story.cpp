@@ -5,12 +5,15 @@ Story::Story()
 {
     parserker.setMaxStuffMass(10.0);
 }
-void Story::StartOfGame()
+
+void Story::startOfGame()
 {
     introTekst();
     waitForDecision();
+    parserker.setMaxStuffMass(10.0);
     displayAllStatistics();
 }
+
 void Story::setStartStatistics()
 {
     setStartStrength();
@@ -20,6 +23,7 @@ void Story::setStartStatistics()
     setStartEndurance();
     setStartWillpower();
 }
+
 void Story::setStartWillpower()
 {
     if (parserker.howManyPointsAreAvaliable() > 0)
@@ -177,25 +181,25 @@ void Story::displayAllStatistics()
 }
 void Story::waitForDecision()
 {
-    int decision;
+    std::string decision;
     std::cout << "\n\nWcisnij \"1\" aby wybrac samodzielnie, wcisnij \"2\" aby " << god << " wybral za ciebie\n";
     std::cin >> decision;
-    if(decision == 1)
+    if (decision == "1")
         setStartStatistics();
-    else if(decision == 2)
+    else if (decision == "2")
     {
         std::cout << god << " uwaza, ze dobrze postepujesz!\n";
         setRandomStatistics();
     }
     else
     {
-        std::cout << "Jesteś na tyle nieodpowiedzialny, że " << god << " sam wybral za ciebie";
+        std::cout << "Nie potrafisz wykonac najprostszego zadania, glupcze! " << god << " sam wybral za ciebie\n";
         setRandomStatistics();
     }
 }
 void Story::setRandomStatistics()
 {
-    int strength, defence, charisma, intelligence, endurence, willpower;
+    int strength, defence, charisma, intelligence, endurance, willpower;
     strength = drawNumber();
     parserker.setStrength(strength);
     defence = drawNumber();
@@ -204,12 +208,70 @@ void Story::setRandomStatistics()
     parserker.setCharisma(charisma);
     intelligence = drawNumber();
     parserker.setIntelligence(intelligence);
-    endurence = drawNumber();
-    parserker.setEndurance(endurence);
+    endurance = drawNumber();
+    parserker.setEndurance(endurance);
     willpower = parserker.howManyPointsAreAvaliable();
     parserker.setWillpower(willpower);
 }
 int Story::drawNumber()
 {
-    return rand()%(parserker.howManyPointsAreAvaliable()/2)+1;
+    return rand() % (parserker.howManyPointsAreAvaliable() / 2) + 1;
+}
+
+void Story::quest1()
+{
+    quest1_txt1();
+    quest1_lookingForStick();
+    quest1_pickingStick();
+}
+void Story::quest1_pickingStick()
+{
+    Weapon stick("Zwykly kij", 1, 2.0);
+    std::cout << "Znalazles to! Czyz to nie piekny kij? Podnies go wpisujac \"pick\"\n";
+    quest1_pickingStickLoop(stick);
+}
+void Story::quest1_pickingStickLoop(Weapon &stick)
+{
+    std::string command;
+    std::cin >> command;
+    if(command == "pick")
+    {
+        parserker.takeWeapon(stick);
+        std::cout << "Patrz jaki jestes teraz silny!\n";
+        displayAllStatistics();
+    }
+    else
+    {
+        std::cout << "Jak mozesz byc az tak bardzo nieogarniety?!\n Wpisz \"pick\"\n";
+        quest1_pickingStickLoop(stick);
+    }
+}
+
+void Story::quest1_lookingForStick()
+{
+    std::string input;
+    int sum = 0;
+    int value = 8;
+    while (sum < value)
+    {
+        std::cin >> input;
+        if (input == "r")
+        {
+            sum += parserker.getIntelligence() + 1;
+            if (sum < value)
+                std::cout << "Jeszcze chwila i to znajdziesz, rozgladaj sie dalej..\n";
+        }
+        else
+        {
+            std::cout << "Czy do ciebie na prawde nie docieraja najprostsze polecenia? Wcisnij \"r\" !!!\n";
+        }
+    }
+}
+void Story::quest1_txt1()
+{
+    std::cout << "Jestes absolutnie bezbronny, do dyspozycji masz tylko swoje ";
+    parserker.getStrength() < 3 ? std::cout << "watle " : std::cout << "";
+    std::cout << "piesci. Musisz zdobyc swoja pierwsza bron. Rozejrzyj sie do okoła, na pewno znajdziesz ";
+    std::cout << "cos, co moze sie przydac. Jesli jestes sprytny, powinienes szybko znalezc. ";
+    std::cout << "\nAby sie rozgladnac wpisz \"r\"\n";
 }

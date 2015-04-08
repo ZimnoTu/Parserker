@@ -33,10 +33,10 @@ public:
     int getDefence() const;
     void setDefence(int defence);
     int getIntelligence() const;
-    void setIntelligence(unsigned int intelligence);
+    void setIntelligence(int intelligence);
     int getCharisma() const;
     int getEndurance() const;
-    void setEndurance(unsigned int endurance);
+    void setEndurance(int endurance);
     void setMaxHP(unsigned int maxHP);
     int getMaxHP();
     void setCurrentHP(int points);
