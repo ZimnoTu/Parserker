@@ -223,6 +223,32 @@ void Story::quest1()
     quest1_txt1();
     quest1_lookingForStick();
     quest1_pickingStick();
+    quest1_trollAttacks();
+
+}
+void Story::quest1_trollAttacks()
+{
+    Troll troll;
+    std::cout << "Uwazaj, zbliza sie slepy troll, zaraz wyprobujemy twoje zdolonsci!\n";
+    std::cout << "Aby zaatakowac wpisz \"attack\"\n";
+   // while(troll.getHP() > 0)
+    {
+        std::string input;
+        std::cin >> input;
+        quest1_trollAttacks_parserkerAttacks(troll, input);
+    }
+}
+void Story::quest1_trollAttacks_parserkerAttacks(Troll &troll, std::string &input)
+{
+    if(input == "attack")
+    {
+        int currentHP = troll.getHP();
+        parserker.attacks(troll);
+        std::cout << "Zabrales Trollowi " << currentHP - troll.getHP() << " punktow zycia";
+        std::cout << "Troll hp: " << troll.getHP() << std::endl;
+    }
+    else
+        std::cout << "nie ta komenda\n";
 }
 void Story::quest1_pickingStick()
 {

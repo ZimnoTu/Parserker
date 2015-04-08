@@ -31,4 +31,6 @@ private:
     void quest1_lookingForStick();
     void quest1_pickingStick();
     void quest1_pickingStickLoop(Weapon &stick);
+    void quest1_trollAttacks();
+    void quest1_trollAttacks_parserkerAttacks(Troll &troll, std::string &input);
 };
